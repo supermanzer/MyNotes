@@ -1,20 +1,13 @@
 ---
 id: 0bwos7t08sg0btcv0xz15jj
-title: Root
-desc: ''
-updated: 1653768544007
+title: My Notes
+desc: 'The personal notes of Ryan Manzer - he puts the Manzer in Supermanzer'
+updated: 1656877804079
 created: 1653768544007
 ---
-# Welcome to Dendron
 
-This is the root of your dendron vault. If you decide to publish your entire vault, this will be your landing page. You are free to customize any part of this page except the frontmatter on top.
+## Welcome to my brain
 
-## Lookup
+I use this wiki site and [Dendron](https://wiki.dendron.so/) to organize my thoughts about various software projects and ideas.  This tool is primarily to store my own thoughts and allow me to document my development process.  This helps me better organize these projects and plan future development.  
 
-This section contains useful links to related resources.
-
-- [Getting Started Guide](https://link.dendron.so/6b25)
-- [Discord](https://link.dendron.so/6b23)
-- [Home Page](https://wiki.dendron.so/)
-- [Github](https://link.dendron.so/6b24)
-- [Developer Docs](https://docs.dendron.so/)
+If others find this site interesting and possibly useful, bonus!
