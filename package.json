@@ -1,0 +1,12 @@
+
+{
+    "name": "supermanzer.mynots",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/supermanzer/MyNotes",
+    "author": "Ryan Manzer",
+    "license": "MIT",
+    "dependencies": {
+      "@dendronhq/dendron-cli": "^0.97.0"
+    }
+  }
