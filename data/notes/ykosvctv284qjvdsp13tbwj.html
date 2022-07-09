@@ -1,0 +1,24 @@
+<h1 id="todo"><a aria-hidden="true" class="anchor-heading" href="#todo"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Todo</h1>
+<p>A simple list of next steps in various parts of the application implementation</p>
+<h2 id="front-end"><a aria-hidden="true" class="anchor-heading" href="#front-end"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Front-End</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> Add <code>ingredient</code> auto-complete field with <code>multiple, clearable, chips</code></li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Add <code>search</code> sync parameter to Recipes data table and trigger recipe list API requests on change.</li>
+</ul>
+<h2 id="api"><a aria-hidden="true" class="anchor-heading" href="#api"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>API</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> Convert Ingredient creation in the <code>confirm</code> action to <code>get_or_create</code> to avoid duplicating ingrdient records.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Buid out <code>RecipeIngredient</code> Serializer.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Add serialization of related <code>RecipeIngredient</code> records to the <code>Recipe</code> serializer and return complete recipe.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Add <code>ingredients</code> search parameter to <code>Recipe</code> endpoint</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Modify <code>get_queryset</code> method for <code>Recipe</code> endpoint to accept ingredients as a filter</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Add an Ingredient Endpoint</li>
+</ul>
+<h2 id="data-model"><a aria-hidden="true" class="anchor-heading" href="#data-model"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Data Model</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> Add a unique <code>name</code> constraint to the Ingredient data model</li>
+</ul>
+<h2 id="services"><a aria-hidden="true" class="anchor-heading" href="#services"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Services</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Implement text recognition</li>
+</ul>

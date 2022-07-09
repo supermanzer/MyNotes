@@ -1,0 +1,24 @@
+<h1 id="ocr"><a aria-hidden="true" class="anchor-heading" href="#ocr"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>OCR</h1>
+<ul>
+<li><strong>Service:</strong> <a href="/MyNotes/notes/Wl7xkoMZgCm0faeX2LfZn">Text Parsing</a></li>
+<li><strong>Core Tech:</strong> <a href="https://pypi.org/project/pytesseract/">PyTesseract</a></li>
+</ul>
+<p>Accurate Optical Character Recognition (OCR) is the core of the Text Parsing service.</p>
+<p>One of the key challenges in text recognition and parsing with recipes is the use of columnar text layouts.</p>
+<p>Another significant challenge is the translation of ingredient lists.  The main challenge here so far is proper recognition of fractions, although list format icons can add some extra difficulty.</p>
+<hr>
+<h2 id="columnar-text"><a aria-hidden="true" class="anchor-heading" href="#columnar-text"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Columnar Text</h2>
+<p>An initial attempt to to handle proper word order when extracting text from multiple columns has been attempted following <a href="https://nanonets.com/blog/ocr-with-tesseract/">this guide</a>.  Results have been less than ideal but introducing some imperitive coding logic may prove useful as well as refining my image pre-processing steps to provide maximum contrast while maintaining clarity.</p>
+<h3 id="next-steps"><a aria-hidden="true" class="anchor-heading" href="#next-steps"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Next Steps</h3>
+<ul>
+<li>Conduct more research into the <a href="https://pypi.org/project/opencv-python/">Open CV</a> functions for detecting contours in the image for better splitting of by columns.  This should improve segmentation for text processing.</li>
+</ul>
+<hr>
+<h2 id="ingredient-lists"><a aria-hidden="true" class="anchor-heading" href="#ingredient-lists"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Ingredient Lists</h2>
+<p>One of the most difficult to interpret characters present in ingredient lists are fractions.  Often these are translated to <code>Y</code> or <code>%</code> characters.  Numbers (depending on the font used) can also provide a significant difficulty.</p>
+<h3 id="next-steps-1"><a aria-hidden="true" class="anchor-heading" href="#next-steps-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Next Steps</h3>
+<ul>
+<li>Review <a href="https://pyimagesearch.com/2021/08/30/detecting-and-ocring-digits-with-tesseract-and-python/">this tutorial</a> about configuring PyTesseract for digit recognition.</li>
+<li>Review <a href="https://stackoverflow.com/questions/55994807/why-does-pytesseract-fail-to-recognise-digits-from-image-with-darker-background">this SO Question</a> regarding improved image preprocessing.</li>
+<li>Review <a href="https://github.com/tesseract-ocr/tesseract/issues/2274">this Github Issue</a> regarding applying new training data to improve PyTesseract model for fraction recognition.</li>
+</ul>

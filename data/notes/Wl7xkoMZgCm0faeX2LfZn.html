@@ -1,0 +1,15 @@
+<h1 id="text-parsing"><a aria-hidden="true" class="anchor-heading" href="#text-parsing"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Text Parsing</h1>
+<p>This service function consumes an array of image files or, more likely,filepaths and returns a single corpus of extracted text.  </p>
+<h2 id="tech-choices"><a aria-hidden="true" class="anchor-heading" href="#tech-choices"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Tech Choices</h2>
+<p>This is the area of this project I am least familiar with and the most likely to take some further research and experimentation to get right.  Based on initial cursory investigations, the Python package <a href="https://pypi.org/project/pytesseract/">PyTesseract</a> appears to be a good place to start.</p>
+<h2 id="output"><a aria-hidden="true" class="anchor-heading" href="#output"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Output</h2>
+<p>This is perhaps a tricky thing to define.  While not all, some recipes include a preamble or story relating to how the recipe was arrived at or the cultural provenance.  While informative and engaging, these details are not pertinent to executing the recipe.  The intent of this application is to allow users to define those recipes they care about by saving them so it is assumed the user already knows why they should care about them.  </p>
+<p>However, it is not the job of this service function to make those decisions.  This service exists to extract text from image files and should not be burdened by addtional business logic.  The only functionality beyond extracting text from a single image file to be included here is the appending of text from successive images to a single corpus in the case of multiple images being assocaited with a single recipe.  The recognition of line breaks, event when between successive images, will also be key as these breaks will be necessary to inform the assignment function that consumes the extracted text.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/ktbej6pqdxs6n5ljh3ftv6g">Android App Design</a></li>
+<li><a href="/MyNotes/notes/3u8xz9de0m56m2pu466elrr">ML Tasks</a></li>
+<li><a href="/MyNotes/notes/Eu3Ti3xC3181U4eLOWxsv">Services</a></li>
+<li><a href="/MyNotes/notes/llhbj4zwjnalqoi6hn497rm">OCR</a></li>
+</ul>

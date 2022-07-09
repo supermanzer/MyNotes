@@ -1,0 +1,216 @@
+<h1 id="data-models"><a aria-hidden="true" class="anchor-heading" href="#data-models"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Data Models</h1>
+<h2 id="models"><a aria-hidden="true" class="anchor-heading" href="#models"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Models</h2>
+<p>The basic data models defined to support this application are shown below:</p>
+<h3 id="ingredient"><a aria-hidden="true" class="anchor-heading" href="#ingredient"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Ingredient</h3>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Ingredient</span></div>
+<a href="/MyNotes/notes/j181dFWmJZsreC5aexhe6" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>This model represents an individual ingredient used in a recipe.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>BigInt</td><td>Primary Key</td></tr><tr><td><strong>Name</strong></td><td>Text</td><td>Name of the ingredient</td></tr></tbody></table>
+</div></div><p></p><p></p>
+<h3 id="recipe-ingredient"><a aria-hidden="true" class="anchor-heading" href="#recipe-ingredient"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Recipe Ingredient</h3>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Recipe Ingredient</span></div>
+<a href="/MyNotes/notes/SbTEpvK2XGGDODacWdxot" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>This model is the associative entity that relates ingredients to recipes. It stores data that are unique to this relationship, i.e. quantity and unit.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>BigInt</td><td>Primary Key</td></tr><tr><td><strong>RecipeID</strong></td><td>BigInt</td><td>FK relating to Recipe</td></tr><tr><td><strong>IngredientID</strong></td><td>BigInt</td><td>FK relating to Ingredient</td></tr><tr><td><strong>Quantity</strong></td><td>Int</td><td>Quantity of the ingredient in the recipe</td></tr><tr><td><strong>Unit</strong></td><td>Text</td><td>The unit the quantity represents (e.g. cup, pinc, teaspoon)</td></tr></tbody></table>
+</div></div><p></p><p></p>
+<h3 id="step"><a aria-hidden="true" class="anchor-heading" href="#step"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Step</h3>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Step</span></div>
+<a href="/MyNotes/notes/soHYpt885ozjQWUY3suoU" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>This model represents an individual step or set of instrutions for executing the recipe.  </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>BigInt</td><td>Primary Key</td></tr><tr><td><strong>RecipeID</strong></td><td>BigInt</td><td>FK relating to Recipe</td></tr><tr><td><strong>Order</strong></td><td>Int</td><td>Numeric represenation of the order of the step as it relates to the Recipe</td></tr><tr><td><strong>Step</strong></td><td>Text</td><td>Recipe directions</td></tr></tbody></table>
+</div></div><p></p><p></p>
+<h3 id="image"><a aria-hidden="true" class="anchor-heading" href="#image"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Image</h3>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Image</span></div>
+<a href="/MyNotes/notes/tzRIbPhcnUFIhERjOHFwC" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>Since it may take more than one image to contain all the text in a readable format, it is nessary to allow more than one image to be associated with a recipe.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>BigInt</td><td>Primary Key</td></tr><tr><td><strong>RecipeID</strong></td><td>BigInt</td><td>FK relating to Recipe</td></tr><tr><td><strong>ImageFile</strong></td><td>FileField</td><td>Link to image file in filesystem</td></tr></tbody></table>
+</div></div><p></p><p></p>
+<h3 id="recipe"><a aria-hidden="true" class="anchor-heading" href="#recipe"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Recipe</h3>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Recipe</span></div>
+<a href="/MyNotes/notes/9ywbq9ix1IsLN55bFpQRI" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>Putting it all together.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>BigInt</td><td>Primary Key</td></tr><tr><td><strong>Name</strong></td><td>Text</td><td>The name for this recipe</td></tr></tbody></table>
+</div></div><p></p><p></p>
+<h2 id="thoughts"><a aria-hidden="true" class="anchor-heading" href="#thoughts"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Thoughts</h2>
+<h3 id="steps"><a aria-hidden="true" class="anchor-heading" href="#steps"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Steps</h3>
+<p>I was/am not certain about breaking out steps into their own model or using a JSON field to store an array of parsed steps. However, I have some ideas for features I want to enable in the UI and I think that separate step data objects will facilitate this.  Perhaps that could have been implemented in the business logic layer or event in the presentation layer.  I may refactor this after some work on the user-interface.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/tzRIbPhcnUFIhERjOHFwC">Image</a></li>
+<li><a href="/MyNotes/notes/j181dFWmJZsreC5aexhe6">Ingredient</a></li>
+<li><a href="/MyNotes/notes/9ywbq9ix1IsLN55bFpQRI">Recipe</a></li>
+<li><a href="/MyNotes/notes/SbTEpvK2XGGDODacWdxot">Recipe Ingredient</a></li>
+<li><a href="/MyNotes/notes/uUxBkIP03jPxohCrZsVky">Recipe Step</a></li>
+<li><a href="/MyNotes/notes/soHYpt885ozjQWUY3suoU">Step</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/ZG5dy128q8nTg2wptcunO">Local Recipe Server</a></li>
+</ul>

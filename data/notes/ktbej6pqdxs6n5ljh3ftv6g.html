@@ -1,0 +1,12 @@
+<h1 id="android-app-design"><a aria-hidden="true" class="anchor-heading" href="#android-app-design"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Android App Design</h1>
+<p><em>This section is intended to capture design decisions for a potential Android application as part of the Recipes Server</em></p>
+<hr>
+<p>One of the important choices to make is how much data to store locally, if at all.  The book I am working through to build Android apps is making use of the <a href="https://developer.android.com/jetpack/androidx/releases/room">Room API</a> to perform CRUD operations with an SQLite DB saved locally on the Android device's file system.  This makes me start to question an entirely API reliant design.</p>
+<h2 id="data-storage-question"><a aria-hidden="true" class="anchor-heading" href="#data-storage-question"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Data Storage question</h2>
+<p>My question for this app is whether it would make more sense to use the local server just for performing the <a href="/MyNotes/notes/Wl7xkoMZgCm0faeX2LfZn">Text Parsing</a> and <a href="/MyNotes/notes/HsYAro3Jb3QOLVgLdGOK3">Text Assigment</a> functionality and store the final recipe record
+locally or whether I should rely on the REST API entirely.  While this would simplify application design it would mean the apps functionality would entirely depend on the health and availability of a Raspberry Pi runningon my local network</p>
+<h3 id="initial-decision"><a aria-hidden="true" class="anchor-heading" href="#initial-decision"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Initial decision</h3>
+<ul>
+<li>Proceed with entirely REST API driven approach </li>
+<li>Be prepared to transition to more data storage in the Android device itself as I become more familiar with caching and synchronizing local data with the canonical server database.</li>
+</ul>

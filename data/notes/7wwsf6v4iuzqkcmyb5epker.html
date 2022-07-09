@@ -1,0 +1,108 @@
+<h1 id="api"><a aria-hidden="true" class="anchor-heading" href="#api"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>API</h1>
+<p>This section defines how the client will interact with what resources in our application.  Since we offer some complex features (on the Create Recipe side), this will be more than just a simple CRUD REST API.</p>
+<h2 id="create-recipe-endpoints"><a aria-hidden="true" class="anchor-heading" href="#create-recipe-endpoints"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Create Recipe Endpoints</h2>
+<ul>
+<li>
+<p><strong>POST</strong> <code>/recipes</code> - Initial recipe creation endpoint, this will initiate the text recognition and parsing processes.</p>
+<ul>
+<li><strong>Parameters:</strong> 
+<ul>
+<li><code>images</code> - An array of image files representing a single recipe</li>
+</ul>
+</li>
+<li><strong>Returns:</strong>
+<ul>
+<li><code>recipe_json</code> - a JSON representation of the parsed recipe</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>POST</strong> <code>/recipes/confirm</code> - User confirmation/correction of parsed recipe text and organization</p>
+<ul>
+<li><strong>Parameters:</strong>
+<ul>
+<li><code>recipe_json</code> - JSON representation of user confirmed/corrected recipe</li>
+</ul>
+</li>
+<li><strong>Returns:</strong>
+<ul>
+<li><code>recipe_id</code> - The ID identifying the recipe record created in the DB. This can also be used in a redirect to the detail view of the created recipe.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="read-recipe-endpoints"><a aria-hidden="true" class="anchor-heading" href="#read-recipe-endpoints"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Read Recipe Endpoints</h2>
+<ul>
+<li>
+<p><strong>GET</strong> <code>/recipes</code> - A list endpoint for viewing existing recipe records</p>
+<ul>
+<li><strong>Parameters:</strong>
+<ul>
+<li><code>ingredients</code> - (Optional) filters recipes returned by relationship to the ingredient(s).</li>
+</ul>
+</li>
+<li><strong>Returns:</strong>
+<ul>
+<li><code>recipes</code> - A paginated list of recipes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>GET</strong> <code>/recipes/:id</code> - A detail endpoint for viewing an individual recipe.</p>
+<ul>
+<li><strong>Parameters:</strong> - <code>None</code></li>
+<li><strong>Returns:</strong>
+<ul>
+<li><code>recipe</code> - A single recipe record, including ingredients and steps.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>GET</strong> <code>/ingredients</code> - A list endpoint for ingredient records</p>
+<ul>
+<li><strong>Parameters:</strong> - <code>None</code></li>
+<li><strong>Returns:</strong>
+<ul>
+<li><code>ingredients</code> - An unpaginated list of ingredients</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>GET</strong> <code>/recipes/:id/ingredients</code> - A list endpoint for ingredients related to a single recipe.</p>
+<ul>
+<li><strong>Parameters:</strong> - <code>None</code></li>
+<li><strong>Returns:</strong>
+<ul>
+<li><code>ingredients</code> - A list of ingredients for a specific recipe</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>GET</strong> <code>/recipes/:id/steps</code> - A list endpoint for steps related to a single recipe.</p>
+<ul>
+<li><strong>Parameters:</strong> - <code>None</code></li>
+<li><strong>Returns:</strong>
+<ul>
+<li><code>steps</code> - A list of steps to execute the recipe</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/upl2tbo4rlv4hkgjduvi1i3">Serializers</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/ZG5dy128q8nTg2wptcunO">Local Recipe Server</a></li>
+</ul>

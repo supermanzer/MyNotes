@@ -1,0 +1,40 @@
+<h1 id="station-web-manager"><a aria-hidden="true" class="anchor-heading" href="#station-web-manager"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Station Web Manager</h1>
+<p>The utility functionality for this class was simply copied and pasted from the original <code>DataBuoy</code> class.  These handle actions like</p>
+<ul>
+<li>Create formatted URL strings based on parameters like <code>station_id</code>, <code>month</code>, <code>year</code>, and <code>data_package</code>.</li>
+<li>Make <code>HEAD</code> requests to determine which URL string formats return a valid response.</li>
+<li>All <code>station_search()</code> functionality since it's basically a web request with a lot of arguments.</li>
+</ul>
+<h3 id="newrevised-functionality"><a aria-hidden="true" class="anchor-heading" href="#newrevised-functionality"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>New/Revised Functionality</h3>
+<p>Previously I had wrapped the requesting of data and storing inside a larger function that interated over all the distinct time periods requested for a single station and data package.  With the functionality being separated out, I need to think about how to structure these functions to achieve the separation I am looking for while still providing the functionality intended.</p>
+<h4 id="fetch_data"><a aria-hidden="true" class="anchor-heading" href="#fetch_data"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><code>fetch_data()</code></h4>
+<p>I think this is going to be the exposed wrapper function that will encapsulate all the actions that go into making a request to the NDBC server.  Each call to this function will represent a request for a single data package for a distinct time period.  It will either return a Pandas dataframe of the raw data if the data package is available for the station and time period requested <strong>or</strong> it will return a string notifying the calling function that this station/data package/time period combination is not available.  Let's take a look at the steps:</p>
+<ul>
+<li>
+<p>Check if data type requested is in the <code>DATA_PACKAGES</code> dictionary</p>
+<ul>
+<li>Continue if so, raise Exception if not.</li>
+</ul>
+</li>
+<li>
+<p>Create necessary keywords for URL string formatting</p>
+</li>
+<li>
+<p>Choose which set of URL templates to use (month or year) based on <code>kwargs</code> passed in</p>
+</li>
+<li>
+<p>Build URLs based on lists of template strings</p>
+</li>
+<li>
+<p>Check URL validity based on <code>HEAD</code> request response code (<code>200</code> == <code>good</code>)</p>
+<ul>
+<li>If we have a good URL response, fetch data using <code>pandas.read_csv()</code> method and return resulting DataFrame.</li>
+<li>If not, return formatted string message stating the data package and time period do not appear to be available. </li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/b235045c-af65-4673-9aca-c29083c8556c">Class Split</a></li>
+</ul>
