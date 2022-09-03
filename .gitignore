@@ -4,3 +4,5 @@ build
 seeds
 .next
 pods/service-connections.next
+keys/
+.backup

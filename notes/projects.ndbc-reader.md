@@ -4,7 +4,7 @@ title: NDBC Reader
 desc: >-
   A Python software package designed to simplify the retrieval of data from NDBC
   data stations
-updated: 1657387237078
+updated: 1662229426383
 created: 1622482415473
 ---
 
@@ -12,6 +12,7 @@ created: 1622482415473
 
 These notes are being added only after the project's complexity has reached a point where I feel the need to jot things down in order to keep track of everything in my head.  Additionally, even though these are notes to myself about my own software projects, I still write as if I'm explaining these ideas to someone else.  It's a habit I picked up when I started coding in grad school and, since it works for me, I do not feel any need to change. Alright, on to the confusing bits!
 
+---
 ## Next steps
 
 This project has been neglected since I changed jobs and have had to spend more of my free time learning different programming languages and paradigms in order to keep up.  However that comes with a bonus of exposure to more enterprise grade software architecture.  With that in mind I plan to make a more rigorous effort to use a more design pattern driven approach to the NDBC Reader package.  
