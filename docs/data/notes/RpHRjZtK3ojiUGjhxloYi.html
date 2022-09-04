@@ -1,0 +1,29 @@
+<h1 id="reservation"><a aria-hidden="true" class="anchor-heading" href="#reservation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Reservation</h1>
+<p>I have identified that the <code>BorrowedCopy</code> model is not the correct way to allow patrons to reserve a Book since it will only place a reservation on a specific copy of a book.  Patrons do not care whether they have copy A or B as long as it's the book that they want to read.  So let's take a look at the definition for this model.</p>
+<pre class="language-python"><code class="language-python"><span class="token comment"># catalog/models.py</span>
+<span class="token keyword">class</span> <span class="token class-name">Reservation</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Defines a reservation for a book by library patron"""</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span> <span class="token comment"># date created/modified yada yada yada</span>
+    patron <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>
+        User<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>SET_NULL<span class="token punctuation">,</span> related_name<span class="token operator">=</span><span class="token string">'reservations'</span><span class="token punctuation">)</span>
+    book <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>
+        Book<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>CASCADE<span class="token punctuation">,</span> related_name<span class="token operator">=</span><span class="token string">'reservations'</span>
+    <span class="token punctuation">)</span>
+    borrowed_copy <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>
+        BorrowedCopy<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>moodels<span class="token punctuation">.</span>CASCADE<span class="token punctuation">,</span> related_name<span class="token operator">=</span><span class="token string">'reservations'</span>
+    <span class="token punctuation">)</span>
+    canceled <span class="token operator">=</span> models<span class="token punctuation">.</span>BooleanField<span class="token punctuation">(</span>
+        verbose_name<span class="token operator">=</span><span class="token string">'Reservation Canceled'</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+        help_text<span class="token operator">=</span><span class="token string">'Cancel if this reservation is no longer requested'</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        ordering<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'patron_id'</span><span class="token punctuation">,</span> <span class="token string">'date_created'</span><span class="token punctuation">,</span> <span class="token string">'id'</span><span class="token punctuation">]</span>
+
+</code></pre>
+<p>The <code>canceled</code> field is added to track the cancelation of reservations by patrons prior to fulfilling them.  This approach is taken rather than simply deleting the specific <code>Reservation</code> record because it will allow library staff to capture demand for a particular book.  Perhaps they can use this information when determining which, if any, existing books to buy more copies of.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/0WEsLdMjcUlRktqpGQIc8">Borrowed Copy</a></li>
+</ul>

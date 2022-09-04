@@ -1,0 +1,2850 @@
+{
+  "notes": {
+    "403": {
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "fname": "403",
+      "id": "403",
+      "title": "This page has not yet sprouted",
+      "schemaStub": false,
+      "type": "note",
+      "updated": 1662324682898,
+      "created": 1662324682898,
+      "desc": "",
+      "links": [],
+      "anchors": {},
+      "children": [],
+      "parent": null,
+      "data": {}
+    },
+    "0bwos7t08sg0btcv0xz15jj": {
+      "id": "0bwos7t08sg0btcv0xz15jj",
+      "title": "My Notes",
+      "desc": "The personal notes of Ryan Manzer - he puts the Manzer in Supermanzer",
+      "updated": 1656877804079,
+      "created": 1653768544007,
+      "custom": {
+        "nav_order": 0,
+        "permalink": "/"
+      },
+      "fname": "root",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "c60847c1bac11a21d4df34db59344c62",
+      "links": [],
+      "anchors": {
+        "welcome-to-my-brain": {
+          "type": "header",
+          "text": "Welcome to my brain",
+          "value": "welcome-to-my-brain",
+          "line": 8,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "ZMf4aL2sSZBsUMJgMhn0R"
+      ],
+      "parent": null,
+      "data": {}
+    },
+    "ZMf4aL2sSZBsUMJgMhn0R": {
+      "id": "ZMf4aL2sSZBsUMJgMhn0R",
+      "title": "Projects",
+      "desc": "",
+      "updated": 1656877120111,
+      "created": 1640901832056,
+      "custom": {},
+      "fname": "projects",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "a951858582562ef65173f9b992aa6957",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects",
+            "id": "ZMf4aL2sSZBsUMJgMhn0R",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.ndbc-reader",
+          "alias": "projects.ndbc-reader",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 3,
+              "offset": 75
+            },
+            "end": {
+              "line": 5,
+              "column": 27,
+              "offset": 99
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.ndbc-reader"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects",
+            "id": "ZMf4aL2sSZBsUMJgMhn0R",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server",
+          "alias": "projects.local-recipe-server",
+          "position": {
+            "start": {
+              "line": 7,
+              "column": 3,
+              "offset": 103
+            },
+            "end": {
+              "line": 7,
+              "column": 35,
+              "offset": 135
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server"
+          }
+        }
+      ],
+      "anchors": {},
+      "children": [
+        "ZG5dy128q8nTg2wptcunO",
+        "6fc953db-7d86-483d-82c4-40e1675f6d1f"
+      ],
+      "parent": "0bwos7t08sg0btcv0xz15jj",
+      "data": {}
+    },
+    "6fc953db-7d86-483d-82c4-40e1675f6d1f": {
+      "id": "6fc953db-7d86-483d-82c4-40e1675f6d1f",
+      "title": "NDBC Reader",
+      "desc": "A Python software package designed to simplify the retrieval of data from NDBC data stations",
+      "updated": 1662229426383,
+      "created": 1622482415473,
+      "custom": {},
+      "fname": "projects.ndbc-reader",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "73df9256e80a2c0e80736fe1e7aacb17",
+      "links": [
+        {
+          "from": {
+            "fname": "projects",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 3,
+              "offset": 75
+            },
+            "end": {
+              "line": 5,
+              "column": 27,
+              "offset": 99
+            },
+            "indent": []
+          },
+          "value": "projects.ndbc-reader",
+          "alias": "projects.ndbc-reader"
+        },
+        {
+          "from": {
+            "fname": "projects.ndbc-reader.operations",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 5,
+              "offset": 4
+            },
+            "end": {
+              "line": 1,
+              "column": 29,
+              "offset": 28
+            },
+            "indent": []
+          },
+          "value": "projects.ndbc-reader",
+          "alias": "projects.ndbc-reader"
+        }
+      ],
+      "anchors": {
+        "next-steps": {
+          "type": "header",
+          "text": "Next steps",
+          "value": "next-steps",
+          "line": 15,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "b235045c-af65-4673-9aca-c29083c8556c",
+        "il0d3buqdbkcmgbgfovas0p"
+      ],
+      "parent": "ZMf4aL2sSZBsUMJgMhn0R",
+      "data": {}
+    },
+    "il0d3buqdbkcmgbgfovas0p": {
+      "id": "il0d3buqdbkcmgbgfovas0p",
+      "title": "Desired Functionalities",
+      "desc": "",
+      "updated": 1662324669101,
+      "created": 1662229443237,
+      "custom": {},
+      "fname": "projects.ndbc-reader.operations",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "854434cb196e1b19f0e79a7f5dc04063",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.ndbc-reader.operations",
+            "id": "il0d3buqdbkcmgbgfovas0p",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.ndbc-reader",
+          "alias": "projects.ndbc-reader",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 5,
+              "offset": 4
+            },
+            "end": {
+              "line": 1,
+              "column": 29,
+              "offset": 28
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.ndbc-reader"
+          }
+        }
+      ],
+      "anchors": {
+        "data-fetching": {
+          "type": "header",
+          "text": "Data Fetching",
+          "value": "data-fetching",
+          "line": 11,
+          "column": 0,
+          "depth": 2
+        },
+        "data-persistence": {
+          "type": "header",
+          "text": "Data Persistence",
+          "value": "data-persistence",
+          "line": 20,
+          "column": 0,
+          "depth": 2
+        },
+        "data-storageaccess": {
+          "type": "header",
+          "text": "Data Storage/Access",
+          "value": "data-storageaccess",
+          "line": 25,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "6fc953db-7d86-483d-82c4-40e1675f6d1f",
+      "data": {}
+    },
+    "b235045c-af65-4673-9aca-c29083c8556c": {
+      "id": "b235045c-af65-4673-9aca-c29083c8556c",
+      "title": "Class Split",
+      "desc": "Desribing the concepts and issues around splitting the NDBC Reader into multiple classes",
+      "updated": 1622504828566,
+      "created": 1622482980052,
+      "custom": {},
+      "fname": "projects.ndbc-reader.class-split",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "1ad1b242c8fb8cac9711262758f00e3d",
+      "links": [
+        {
+          "type": "ref",
+          "from": {
+            "fname": "projects.ndbc-reader.class-split",
+            "id": "b235045c-af65-4673-9aca-c29083c8556c",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.ndbc-reader.class-split.station-web-manager",
+          "position": {
+            "start": {
+              "line": 35,
+              "column": 1,
+              "offset": 2433
+            },
+            "end": {
+              "line": 35,
+              "column": 69,
+              "offset": 2501
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "to": {
+            "fname": "projects.ndbc-reader.class-split.station-web-manager",
+            "anchorHeader": "fetch_data"
+          }
+        }
+      ],
+      "anchors": {
+        "stationwebmanager-manages-interactions-with-ndbc-web-servers": {
+          "type": "header",
+          "text": "StationWebManager: Manages interactions with NDBC web servers.",
+          "value": "stationwebmanager-manages-interactions-with-ndbc-web-servers",
+          "line": 17,
+          "column": 2,
+          "depth": 4
+        },
+        "datamanager-handles-data-parsing-storing-saving-and-access": {
+          "type": "header",
+          "text": "DataManager: Handles data parsing, storing, saving, and access.",
+          "value": "datamanager-handles-data-parsing-storing-saving-and-access",
+          "line": 24,
+          "column": 2,
+          "depth": 4
+        },
+        "db2-coordinates-subclass-functionality---eventually-renamed-to-databuoy-class-once-all-tests-pass": {
+          "type": "header",
+          "text": "DB2: Coordinates Subclass functionality - eventually renamed to DataBuoy class once all tests pass.",
+          "value": "db2-coordinates-subclass-functionality---eventually-renamed-to-databuoy-class-once-all-tests-pass",
+          "line": 30,
+          "column": 2,
+          "depth": 4
+        },
+        "outstanding-questions": {
+          "type": "header",
+          "text": "Outstanding Questions:",
+          "value": "outstanding-questions",
+          "line": 35,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "6a1859bd-62ec-4563-952e-67c3b65a664c"
+      ],
+      "parent": "6fc953db-7d86-483d-82c4-40e1675f6d1f",
+      "data": {}
+    },
+    "6a1859bd-62ec-4563-952e-67c3b65a664c": {
+      "id": "6a1859bd-62ec-4563-952e-67c3b65a664c",
+      "title": "Station Web Manager",
+      "desc": "",
+      "updated": 1622487071188,
+      "created": 1622485719542,
+      "custom": {},
+      "fname": "projects.ndbc-reader.class-split.station-web-manager",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "7697934f88bed52a841875b5fa0149cd",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.ndbc-reader.class-split",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 35,
+              "column": 1,
+              "offset": 2433
+            },
+            "end": {
+              "line": 35,
+              "column": 69,
+              "offset": 2501
+            },
+            "indent": []
+          },
+          "value": "projects.ndbc-reader.class-split.station-web-manager"
+        }
+      ],
+      "anchors": {
+        "newrevised-functionality": {
+          "type": "header",
+          "text": "New/Revised Functionality",
+          "value": "newrevised-functionality",
+          "line": 14,
+          "column": 0,
+          "depth": 3
+        },
+        "fetch_data": {
+          "type": "header",
+          "text": "fetch_data()",
+          "value": "fetch_data",
+          "line": 17,
+          "column": 0,
+          "depth": 4
+        }
+      },
+      "children": [],
+      "parent": "b235045c-af65-4673-9aca-c29083c8556c",
+      "data": {}
+    },
+    "ZG5dy128q8nTg2wptcunO": {
+      "id": "ZG5dy128q8nTg2wptcunO",
+      "title": "Local Recipe Server",
+      "desc": "",
+      "updated": 1645905278846,
+      "created": 1642286111673,
+      "custom": {},
+      "fname": "projects.local-recipe-server",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "f201ea375b8288fe477cd537d9f2dfd3",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server",
+            "id": "ZG5dy128q8nTg2wptcunO",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.user-interfaces",
+          "alias": "projects.local-recipe-server.user-interfaces",
+          "position": {
+            "start": {
+              "line": 13,
+              "column": 4,
+              "offset": 1153
+            },
+            "end": {
+              "line": 13,
+              "column": 52,
+              "offset": 1201
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.user-interfaces"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server",
+            "id": "ZG5dy128q8nTg2wptcunO",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models",
+          "alias": "projects.local-recipe-server.data-models",
+          "position": {
+            "start": {
+              "line": 20,
+              "column": 4,
+              "offset": 1408
+            },
+            "end": {
+              "line": 20,
+              "column": 48,
+              "offset": 1452
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server",
+            "id": "ZG5dy128q8nTg2wptcunO",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services",
+          "alias": "projects.local-recipe-server.services",
+          "position": {
+            "start": {
+              "line": 24,
+              "column": 4,
+              "offset": 1592
+            },
+            "end": {
+              "line": 24,
+              "column": 45,
+              "offset": 1633
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server",
+            "id": "ZG5dy128q8nTg2wptcunO",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.api",
+          "alias": "projects.local-recipe-server.api",
+          "position": {
+            "start": {
+              "line": 27,
+              "column": 4,
+              "offset": 1742
+            },
+            "end": {
+              "line": 27,
+              "column": 40,
+              "offset": 1778
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.api"
+          }
+        },
+        {
+          "from": {
+            "fname": "projects",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 7,
+              "column": 3,
+              "offset": 103
+            },
+            "end": {
+              "line": 7,
+              "column": 35,
+              "offset": 135
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server",
+          "alias": "projects.local-recipe-server"
+        }
+      ],
+      "anchors": {
+        "motivation": {
+          "type": "header",
+          "text": "Motivation",
+          "value": "motivation",
+          "line": 8,
+          "column": 0,
+          "depth": 2
+        },
+        "project-definition": {
+          "type": "header",
+          "text": "Project Definition",
+          "value": "project-definition",
+          "line": 13,
+          "column": 0,
+          "depth": 2
+        },
+        "projectslocal-recipe-serveruser-interfaces": {
+          "type": "header",
+          "text": "projects.local-recipe-server.user-interfaces",
+          "value": "projectslocal-recipe-serveruser-interfaces",
+          "line": 19,
+          "column": 0,
+          "depth": 2
+        },
+        "projectslocal-recipe-serverdata-models": {
+          "type": "header",
+          "text": "projects.local-recipe-server.data-models",
+          "value": "projectslocal-recipe-serverdata-models",
+          "line": 26,
+          "column": 0,
+          "depth": 2
+        },
+        "projectslocal-recipe-serverservices": {
+          "type": "header",
+          "text": "projects.local-recipe-server.services",
+          "value": "projectslocal-recipe-serverservices",
+          "line": 30,
+          "column": 0,
+          "depth": 2
+        },
+        "projectslocal-recipe-serverapi": {
+          "type": "header",
+          "text": "projects.local-recipe-server.api",
+          "value": "projectslocal-recipe-serverapi",
+          "line": 33,
+          "column": 0,
+          "depth": 2
+        },
+        "potential-pi-architecture": {
+          "type": "header",
+          "text": "Potential Pi Architecture",
+          "value": "potential-pi-architecture",
+          "line": 36,
+          "column": 0,
+          "depth": 2
+        },
+        "stretch-goal": {
+          "type": "header",
+          "text": "STRETCH Goal",
+          "value": "stretch-goal",
+          "line": 41,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "ktbej6pqdxs6n5ljh3ftv6g",
+        "7wwsf6v4iuzqkcmyb5epker",
+        "nr1WXwYYrWSPhs8JKr5SY",
+        "3u8xz9de0m56m2pu466elrr",
+        "Eu3Ti3xC3181U4eLOWxsv",
+        "ykosvctv284qjvdsp13tbwj",
+        "8lZ0plvgBBcCInx2b90To"
+      ],
+      "parent": "ZMf4aL2sSZBsUMJgMhn0R",
+      "data": {}
+    },
+    "8lZ0plvgBBcCInx2b90To": {
+      "id": "8lZ0plvgBBcCInx2b90To",
+      "title": "User Interfaces",
+      "desc": "",
+      "updated": 1643564587380,
+      "created": 1643498542690,
+      "custom": {},
+      "fname": "projects.local-recipe-server.user-interfaces",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "c8f26edfa7257ec2a15f34c6eecb5c15",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces",
+            "id": "8lZ0plvgBBcCInx2b90To",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.user-interfaces.landing-page",
+          "alias": "projects.local-recipe-server.user-interfaces.landing-page",
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 4,
+              "offset": 73
+            },
+            "end": {
+              "line": 3,
+              "column": 65,
+              "offset": 134
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.user-interfaces.landing-page"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces",
+            "id": "8lZ0plvgBBcCInx2b90To",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.user-interfaces.create-recipe",
+          "alias": "projects.local-recipe-server.user-interfaces.create-recipe",
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 4,
+              "offset": 217
+            },
+            "end": {
+              "line": 6,
+              "column": 66,
+              "offset": 279
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.user-interfaces.create-recipe"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces",
+            "id": "8lZ0plvgBBcCInx2b90To",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.user-interfaces.view-recipe",
+          "alias": "projects.local-recipe-server.user-interfaces.view-recipe",
+          "position": {
+            "start": {
+              "line": 9,
+              "column": 4,
+              "offset": 342
+            },
+            "end": {
+              "line": 9,
+              "column": 64,
+              "offset": 402
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.user-interfaces.view-recipe"
+          }
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 13,
+              "column": 4,
+              "offset": 1153
+            },
+            "end": {
+              "line": 13,
+              "column": 52,
+              "offset": 1201
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.user-interfaces",
+          "alias": "projects.local-recipe-server.user-interfaces"
+        }
+      ],
+      "anchors": {
+        "projectslocal-recipe-serveruser-interfaceslanding-page": {
+          "type": "header",
+          "text": "projects.local-recipe-server.user-interfaces.landing-page",
+          "value": "projectslocal-recipe-serveruser-interfaceslanding-page",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "projectslocal-recipe-serveruser-interfacescreate-recipe": {
+          "type": "header",
+          "text": "projects.local-recipe-server.user-interfaces.create-recipe",
+          "value": "projectslocal-recipe-serveruser-interfacescreate-recipe",
+          "line": 12,
+          "column": 0,
+          "depth": 2
+        },
+        "projectslocal-recipe-serveruser-interfacesview-recipe": {
+          "type": "header",
+          "text": "projects.local-recipe-server.user-interfaces.view-recipe",
+          "value": "projectslocal-recipe-serveruser-interfacesview-recipe",
+          "line": 15,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "4hsUM8E38XB2LdExeMUqy",
+        "c5wNMAvc65ExLUaeCfxl3",
+        "zLflC0uVAy1lZhlPHM70Y"
+      ],
+      "parent": "ZG5dy128q8nTg2wptcunO",
+      "data": {}
+    },
+    "zLflC0uVAy1lZhlPHM70Y": {
+      "id": "zLflC0uVAy1lZhlPHM70Y",
+      "title": "View Recipe",
+      "desc": "",
+      "updated": 1643503171581,
+      "created": 1643502014246,
+      "custom": {},
+      "fname": "projects.local-recipe-server.user-interfaces.view-recipe",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "435a52145e47d31a0a2f074c3552ed1b",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 9,
+              "column": 4,
+              "offset": 342
+            },
+            "end": {
+              "line": 9,
+              "column": 64,
+              "offset": 402
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.user-interfaces.view-recipe",
+          "alias": "projects.local-recipe-server.user-interfaces.view-recipe"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces.landing-page",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 4,
+              "column": 144,
+              "offset": 297
+            },
+            "end": {
+              "line": 4,
+              "column": 204,
+              "offset": 357
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.user-interfaces.view-recipe",
+          "alias": "projects.local-recipe-server.user-interfaces.view-recipe"
+        }
+      ],
+      "anchors": {
+        "list-view": {
+          "type": "header",
+          "text": "List View",
+          "value": "list-view",
+          "line": 14,
+          "column": 0,
+          "depth": 2
+        },
+        "detail-view": {
+          "type": "header",
+          "text": "Detail View",
+          "value": "detail-view",
+          "line": 17,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "8lZ0plvgBBcCInx2b90To",
+      "data": {}
+    },
+    "c5wNMAvc65ExLUaeCfxl3": {
+      "id": "c5wNMAvc65ExLUaeCfxl3",
+      "title": "Landing Page",
+      "desc": "",
+      "updated": 1643564565419,
+      "created": 1643564400449,
+      "custom": {},
+      "fname": "projects.local-recipe-server.user-interfaces.landing-page",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "cdbcf51d6a467a8e0a829bee06d00071",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces.landing-page",
+            "id": "c5wNMAvc65ExLUaeCfxl3",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.user-interfaces.create-recipe",
+          "alias": "projects.local-recipe-server.user-interfaces.create-recipe",
+          "position": {
+            "start": {
+              "line": 4,
+              "column": 78,
+              "offset": 231
+            },
+            "end": {
+              "line": 4,
+              "column": 140,
+              "offset": 293
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.user-interfaces.create-recipe"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces.landing-page",
+            "id": "c5wNMAvc65ExLUaeCfxl3",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.user-interfaces.view-recipe",
+          "alias": "projects.local-recipe-server.user-interfaces.view-recipe",
+          "position": {
+            "start": {
+              "line": 4,
+              "column": 144,
+              "offset": 297
+            },
+            "end": {
+              "line": 4,
+              "column": 204,
+              "offset": 357
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.user-interfaces.view-recipe"
+          }
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 4,
+              "offset": 73
+            },
+            "end": {
+              "line": 3,
+              "column": 65,
+              "offset": 134
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.user-interfaces.landing-page",
+          "alias": "projects.local-recipe-server.user-interfaces.landing-page"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "8lZ0plvgBBcCInx2b90To",
+      "data": {}
+    },
+    "4hsUM8E38XB2LdExeMUqy": {
+      "id": "4hsUM8E38XB2LdExeMUqy",
+      "title": "Create Recipe",
+      "desc": "",
+      "updated": 1643501997648,
+      "created": 1643499761487,
+      "custom": {},
+      "fname": "projects.local-recipe-server.user-interfaces.create-recipe",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "838fd928a5d7d821f9202a3686b1a501",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 4,
+              "offset": 217
+            },
+            "end": {
+              "line": 6,
+              "column": 66,
+              "offset": 279
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.user-interfaces.create-recipe",
+          "alias": "projects.local-recipe-server.user-interfaces.create-recipe"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.user-interfaces.landing-page",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 4,
+              "column": 78,
+              "offset": 231
+            },
+            "end": {
+              "line": 4,
+              "column": 140,
+              "offset": 293
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.user-interfaces.create-recipe",
+          "alias": "projects.local-recipe-server.user-interfaces.create-recipe"
+        }
+      ],
+      "anchors": {
+        "upload-files": {
+          "type": "header",
+          "text": "Upload File(s)",
+          "value": "upload-files",
+          "line": 15,
+          "column": 0,
+          "depth": 2
+        },
+        "editsave-results": {
+          "type": "header",
+          "text": "Edit/Save Results",
+          "value": "editsave-results",
+          "line": 18,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "8lZ0plvgBBcCInx2b90To",
+      "data": {}
+    },
+    "ykosvctv284qjvdsp13tbwj": {
+      "id": "ykosvctv284qjvdsp13tbwj",
+      "title": "Todo",
+      "desc": "",
+      "updated": 1648399622422,
+      "created": 1647183828137,
+      "custom": {},
+      "fname": "projects.local-recipe-server.todo",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "f6ddeaf8c8c52974428fb82b3c597002",
+      "links": [],
+      "anchors": {
+        "front-end": {
+          "type": "header",
+          "text": "Front-End",
+          "value": "front-end",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "api": {
+          "type": "header",
+          "text": "API",
+          "value": "api",
+          "line": 13,
+          "column": 0,
+          "depth": 2
+        },
+        "data-model": {
+          "type": "header",
+          "text": "Data Model",
+          "value": "data-model",
+          "line": 21,
+          "column": 0,
+          "depth": 2
+        },
+        "services": {
+          "type": "header",
+          "text": "Services",
+          "value": "services",
+          "line": 25,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "ZG5dy128q8nTg2wptcunO",
+      "data": {}
+    },
+    "Eu3Ti3xC3181U4eLOWxsv": {
+      "id": "Eu3Ti3xC3181U4eLOWxsv",
+      "title": "Services",
+      "desc": "",
+      "updated": 1643565790341,
+      "created": 1643503337935,
+      "custom": {},
+      "fname": "projects.local-recipe-server.services",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "be88f615f77a6c39164189d279beeee5",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.services",
+            "id": "Eu3Ti3xC3181U4eLOWxsv",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services.text-parsing",
+          "alias": "projects.local-recipe-server.services.text-parsing",
+          "position": {
+            "start": {
+              "line": 4,
+              "column": 4,
+              "offset": 233
+            },
+            "end": {
+              "line": 4,
+              "column": 58,
+              "offset": 287
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services.text-parsing"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.services",
+            "id": "Eu3Ti3xC3181U4eLOWxsv",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services.text-assigment",
+          "alias": "projects.local-recipe-server.services.text-assigment",
+          "position": {
+            "start": {
+              "line": 7,
+              "column": 4,
+              "offset": 322
+            },
+            "end": {
+              "line": 7,
+              "column": 60,
+              "offset": 378
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services.text-assigment"
+          }
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 24,
+              "column": 4,
+              "offset": 1592
+            },
+            "end": {
+              "line": 24,
+              "column": 45,
+              "offset": 1633
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services",
+          "alias": "projects.local-recipe-server.services"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 265,
+              "offset": 264
+            },
+            "end": {
+              "line": 1,
+              "column": 306,
+              "offset": 305
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services",
+          "alias": "projects.local-recipe-server.services"
+        }
+      ],
+      "anchors": {
+        "projectslocal-recipe-serverservicestext-parsing": {
+          "type": "header",
+          "text": "projects.local-recipe-server.services.text-parsing",
+          "value": "projectslocal-recipe-serverservicestext-parsing",
+          "line": 10,
+          "column": 0,
+          "depth": 2
+        },
+        "projectslocal-recipe-serverservicestext-assigment": {
+          "type": "header",
+          "text": "projects.local-recipe-server.services.text-assigment",
+          "value": "projectslocal-recipe-serverservicestext-assigment",
+          "line": 13,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "HsYAro3Jb3QOLVgLdGOK3",
+        "Wl7xkoMZgCm0faeX2LfZn"
+      ],
+      "parent": "ZG5dy128q8nTg2wptcunO",
+      "data": {}
+    },
+    "Wl7xkoMZgCm0faeX2LfZn": {
+      "id": "Wl7xkoMZgCm0faeX2LfZn",
+      "title": "Text Parsing",
+      "desc": "",
+      "updated": 1643504298860,
+      "created": 1643503444838,
+      "custom": {},
+      "fname": "projects.local-recipe-server.services.text-parsing",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "67938dd0ab0139689aab70609449a2a0",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.android-app-design",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 8,
+              "column": 110,
+              "offset": 653
+            },
+            "end": {
+              "line": 8,
+              "column": 164,
+              "offset": 707
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services.text-parsing",
+          "alias": "projects.local-recipe-server.services.text-parsing"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 149,
+              "offset": 148
+            },
+            "end": {
+              "line": 1,
+              "column": 203,
+              "offset": 202
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services.text-parsing",
+          "alias": "projects.local-recipe-server.services.text-parsing"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.services",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 4,
+              "column": 4,
+              "offset": 233
+            },
+            "end": {
+              "line": 4,
+              "column": 58,
+              "offset": 287
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services.text-parsing",
+          "alias": "projects.local-recipe-server.services.text-parsing"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks.ocr",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 2,
+              "column": 16,
+              "offset": 16
+            },
+            "end": {
+              "line": 2,
+              "column": 70,
+              "offset": 70
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services.text-parsing",
+          "alias": "projects.local-recipe-server.services.text-parsing"
+        }
+      ],
+      "anchors": {
+        "tech-choices": {
+          "type": "header",
+          "text": "Tech Choices",
+          "value": "tech-choices",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "output": {
+          "type": "header",
+          "text": "Output",
+          "value": "output",
+          "line": 12,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "Eu3Ti3xC3181U4eLOWxsv",
+      "data": {}
+    },
+    "HsYAro3Jb3QOLVgLdGOK3": {
+      "id": "HsYAro3Jb3QOLVgLdGOK3",
+      "title": "Text Assigment",
+      "desc": "",
+      "updated": 1643504777917,
+      "created": 1643504350336,
+      "custom": {},
+      "fname": "projects.local-recipe-server.services.text-assigment",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "1f095080ad1e44a56a935e0f45903618",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.android-app-design",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 8,
+              "column": 169,
+              "offset": 712
+            },
+            "end": {
+              "line": 8,
+              "column": 225,
+              "offset": 768
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services.text-assigment",
+          "alias": "projects.local-recipe-server.services.text-assigment"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 208,
+              "offset": 207
+            },
+            "end": {
+              "line": 1,
+              "column": 264,
+              "offset": 263
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services.text-assigment",
+          "alias": "projects.local-recipe-server.services.text-assigment"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.services",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 7,
+              "column": 4,
+              "offset": 322
+            },
+            "end": {
+              "line": 7,
+              "column": 60,
+              "offset": 378
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services.text-assigment",
+          "alias": "projects.local-recipe-server.services.text-assigment"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks.nlp",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 16,
+              "offset": 15
+            },
+            "end": {
+              "line": 1,
+              "column": 72,
+              "offset": 71
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.services.text-assigment",
+          "alias": "projects.local-recipe-server.services.text-assigment"
+        }
+      ],
+      "anchors": {
+        "rules": {
+          "type": "header",
+          "text": "Rules",
+          "value": "rules",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "output": {
+          "type": "header",
+          "text": "Output",
+          "value": "output",
+          "line": 12,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "Eu3Ti3xC3181U4eLOWxsv",
+      "data": {}
+    },
+    "3u8xz9de0m56m2pu466elrr": {
+      "id": "3u8xz9de0m56m2pu466elrr",
+      "title": "ML Tasks",
+      "desc": "",
+      "updated": 1649604285265,
+      "created": 1649604057015,
+      "custom": {},
+      "fname": "projects.local-recipe-server.ml-tasks",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "3c40973e717aaa7b01171a91642cbbfc",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks",
+            "id": "3u8xz9de0m56m2pu466elrr",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services.text-parsing",
+          "alias": "projects.local-recipe-server.services.text-parsing",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 149,
+              "offset": 148
+            },
+            "end": {
+              "line": 1,
+              "column": 203,
+              "offset": 202
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services.text-parsing"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks",
+            "id": "3u8xz9de0m56m2pu466elrr",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services.text-assigment",
+          "alias": "projects.local-recipe-server.services.text-assigment",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 208,
+              "offset": 207
+            },
+            "end": {
+              "line": 1,
+              "column": 264,
+              "offset": 263
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services.text-assigment"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks",
+            "id": "3u8xz9de0m56m2pu466elrr",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services",
+          "alias": "projects.local-recipe-server.services",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 265,
+              "offset": 264
+            },
+            "end": {
+              "line": 1,
+              "column": 306,
+              "offset": 305
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services"
+          }
+        }
+      ],
+      "anchors": {},
+      "children": [
+        "61eonxgg2peewbodzcfsccv",
+        "llhbj4zwjnalqoi6hn497rm"
+      ],
+      "parent": "ZG5dy128q8nTg2wptcunO",
+      "data": {}
+    },
+    "llhbj4zwjnalqoi6hn497rm": {
+      "id": "llhbj4zwjnalqoi6hn497rm",
+      "title": "OCR",
+      "desc": "",
+      "updated": 1656877031315,
+      "created": 1649604302413,
+      "custom": {},
+      "fname": "projects.local-recipe-server.ml-tasks.ocr",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "89b5d0053f9f52f62cd988791dccbc27",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks.ocr",
+            "id": "llhbj4zwjnalqoi6hn497rm",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services.text-parsing",
+          "alias": "projects.local-recipe-server.services.text-parsing",
+          "position": {
+            "start": {
+              "line": 2,
+              "column": 16,
+              "offset": 16
+            },
+            "end": {
+              "line": 2,
+              "column": 70,
+              "offset": 70
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services.text-parsing"
+          }
+        }
+      ],
+      "anchors": {
+        "columnar-text": {
+          "type": "header",
+          "text": "Columnar Text",
+          "value": "columnar-text",
+          "line": 19,
+          "column": 0,
+          "depth": 2
+        },
+        "next-steps": {
+          "type": "header",
+          "text": "Next Steps",
+          "value": "next-steps",
+          "line": 22,
+          "column": 0,
+          "depth": 3
+        },
+        "ingredient-lists": {
+          "type": "header",
+          "text": "Ingredient Lists",
+          "value": "ingredient-lists",
+          "line": 27,
+          "column": 0,
+          "depth": 2
+        },
+        "next-steps-1": {
+          "type": "header",
+          "text": "Next Steps",
+          "value": "next-steps-1",
+          "line": 30,
+          "column": 0,
+          "depth": 3
+        }
+      },
+      "children": [],
+      "parent": "3u8xz9de0m56m2pu466elrr",
+      "data": {}
+    },
+    "61eonxgg2peewbodzcfsccv": {
+      "id": "61eonxgg2peewbodzcfsccv",
+      "title": "NLP",
+      "desc": "",
+      "updated": 1649608305328,
+      "created": 1649607329672,
+      "custom": {},
+      "fname": "projects.local-recipe-server.ml-tasks.nlp",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "8e9ba4044c2daaf81ce38f376245d80c",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.ml-tasks.nlp",
+            "id": "61eonxgg2peewbodzcfsccv",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services.text-assigment",
+          "alias": "projects.local-recipe-server.services.text-assigment",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 16,
+              "offset": 15
+            },
+            "end": {
+              "line": 1,
+              "column": 72,
+              "offset": 71
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services.text-assigment"
+          }
+        }
+      ],
+      "anchors": {
+        "next-steps": {
+          "type": "header",
+          "text": "Next Steps",
+          "value": "next-steps",
+          "line": 18,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "3u8xz9de0m56m2pu466elrr",
+      "data": {}
+    },
+    "nr1WXwYYrWSPhs8JKr5SY": {
+      "id": "nr1WXwYYrWSPhs8JKr5SY",
+      "title": "Data Models",
+      "desc": "",
+      "updated": 1643498383525,
+      "created": 1643495710860,
+      "custom": {},
+      "fname": "projects.local-recipe-server.data-models",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "e599da5a6031f14aae5d4debcf0f1838",
+      "links": [
+        {
+          "type": "ref",
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "id": "nr1WXwYYrWSPhs8JKr5SY",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.ingredient",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 1,
+              "offset": 101
+            },
+            "end": {
+              "line": 5,
+              "column": 57,
+              "offset": 157
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.ingredient"
+          }
+        },
+        {
+          "type": "ref",
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "id": "nr1WXwYYrWSPhs8JKr5SY",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "position": {
+            "start": {
+              "line": 8,
+              "column": 1,
+              "offset": 181
+            },
+            "end": {
+              "line": 8,
+              "column": 64,
+              "offset": 244
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.recipe-ingredient"
+          }
+        },
+        {
+          "type": "ref",
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "id": "nr1WXwYYrWSPhs8JKr5SY",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.step",
+          "position": {
+            "start": {
+              "line": 11,
+              "column": 1,
+              "offset": 255
+            },
+            "end": {
+              "line": 11,
+              "column": 51,
+              "offset": 305
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.step"
+          }
+        },
+        {
+          "type": "ref",
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "id": "nr1WXwYYrWSPhs8JKr5SY",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.image",
+          "position": {
+            "start": {
+              "line": 14,
+              "column": 1,
+              "offset": 317
+            },
+            "end": {
+              "line": 14,
+              "column": 52,
+              "offset": 368
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.image"
+          }
+        },
+        {
+          "type": "ref",
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "id": "nr1WXwYYrWSPhs8JKr5SY",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.recipe",
+          "position": {
+            "start": {
+              "line": 17,
+              "column": 1,
+              "offset": 381
+            },
+            "end": {
+              "line": 17,
+              "column": 53,
+              "offset": 433
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.recipe"
+          }
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 20,
+              "column": 4,
+              "offset": 1408
+            },
+            "end": {
+              "line": 20,
+              "column": 48,
+              "offset": 1452
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models",
+          "alias": "projects.local-recipe-server.data-models"
+        }
+      ],
+      "anchors": {
+        "models": {
+          "type": "header",
+          "text": "Models",
+          "value": "models",
+          "line": 7,
+          "column": 0,
+          "depth": 2
+        },
+        "ingredient": {
+          "type": "header",
+          "text": "Ingredient",
+          "value": "ingredient",
+          "line": 10,
+          "column": 0,
+          "depth": 3
+        },
+        "recipe-ingredient": {
+          "type": "header",
+          "text": "Recipe Ingredient",
+          "value": "recipe-ingredient",
+          "line": 13,
+          "column": 0,
+          "depth": 3
+        },
+        "step": {
+          "type": "header",
+          "text": "Step",
+          "value": "step",
+          "line": 16,
+          "column": 0,
+          "depth": 3
+        },
+        "image": {
+          "type": "header",
+          "text": "Image",
+          "value": "image",
+          "line": 19,
+          "column": 0,
+          "depth": 3
+        },
+        "recipe": {
+          "type": "header",
+          "text": "Recipe",
+          "value": "recipe",
+          "line": 22,
+          "column": 0,
+          "depth": 3
+        },
+        "thoughts": {
+          "type": "header",
+          "text": "Thoughts",
+          "value": "thoughts",
+          "line": 25,
+          "column": 0,
+          "depth": 2
+        },
+        "steps": {
+          "type": "header",
+          "text": "Steps",
+          "value": "steps",
+          "line": 26,
+          "column": 0,
+          "depth": 3
+        }
+      },
+      "children": [
+        "tzRIbPhcnUFIhERjOHFwC",
+        "j181dFWmJZsreC5aexhe6",
+        "SbTEpvK2XGGDODacWdxot",
+        "uUxBkIP03jPxohCrZsVky",
+        "9ywbq9ix1IsLN55bFpQRI",
+        "soHYpt885ozjQWUY3suoU"
+      ],
+      "parent": "ZG5dy128q8nTg2wptcunO",
+      "data": {}
+    },
+    "soHYpt885ozjQWUY3suoU": {
+      "id": "soHYpt885ozjQWUY3suoU",
+      "title": "Step",
+      "desc": "",
+      "updated": 1643504829242,
+      "created": 1643496842476,
+      "custom": {},
+      "fname": "projects.local-recipe-server.data-models.step",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "7b69aea347261f78ff01d6302bfb399e",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 11,
+              "column": 1,
+              "offset": 255
+            },
+            "end": {
+              "line": 11,
+              "column": 51,
+              "offset": 305
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.step"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "nr1WXwYYrWSPhs8JKr5SY",
+      "data": {}
+    },
+    "9ywbq9ix1IsLN55bFpQRI": {
+      "id": "9ywbq9ix1IsLN55bFpQRI",
+      "title": "Recipe",
+      "desc": "",
+      "updated": 1643497711162,
+      "created": 1643497023462,
+      "custom": {},
+      "fname": "projects.local-recipe-server.data-models.recipe",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "adeddc25403f8ffb2944db860ea7bbed",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 17,
+              "column": 1,
+              "offset": 381
+            },
+            "end": {
+              "line": 17,
+              "column": 53,
+              "offset": 433
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.recipe"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 11,
+              "column": 13,
+              "offset": 788
+            },
+            "end": {
+              "line": 11,
+              "column": 64,
+              "offset": 839
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.recipe",
+          "alias": "projects.local-recipe-server.data-models.recipe"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 12,
+              "column": 13,
+              "offset": 863
+            },
+            "end": {
+              "line": 12,
+              "column": 64,
+              "offset": 914
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.recipe",
+          "alias": "projects.local-recipe-server.data-models.recipe"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "nr1WXwYYrWSPhs8JKr5SY",
+      "data": {}
+    },
+    "uUxBkIP03jPxohCrZsVky": {
+      "id": "uUxBkIP03jPxohCrZsVky",
+      "title": "Recipe Step",
+      "desc": "",
+      "updated": 1643504443297,
+      "created": 1643504429540,
+      "custom": {},
+      "fname": "projects.local-recipe-server.data-models.recipe-step",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "51461da193d746fc7409dc952cc03d71",
+      "links": [],
+      "anchors": {},
+      "children": [],
+      "parent": "nr1WXwYYrWSPhs8JKr5SY",
+      "data": {}
+    },
+    "SbTEpvK2XGGDODacWdxot": {
+      "id": "SbTEpvK2XGGDODacWdxot",
+      "title": "Recipe Ingredient",
+      "desc": "",
+      "updated": 1643496538878,
+      "created": 1643496243727,
+      "custom": {},
+      "fname": "projects.local-recipe-server.data-models.recipe-ingredient",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "7bfd4e34715b7959599f09af5bb45e54",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 8,
+              "column": 1,
+              "offset": 181
+            },
+            "end": {
+              "line": 8,
+              "column": 64,
+              "offset": 244
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.recipe-ingredient"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 16,
+              "offset": 454
+            },
+            "end": {
+              "line": 6,
+              "column": 78,
+              "offset": 516
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "alias": "projects.local-recipe-server.data-models.recipe-ingredient"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 7,
+              "column": 12,
+              "offset": 539
+            },
+            "end": {
+              "line": 7,
+              "column": 74,
+              "offset": 601
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "alias": "projects.local-recipe-server.data-models.recipe-ingredient"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 13,
+              "column": 49,
+              "offset": 974
+            },
+            "end": {
+              "line": 13,
+              "column": 111,
+              "offset": 1036
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "alias": "projects.local-recipe-server.data-models.recipe-ingredient"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "nr1WXwYYrWSPhs8JKr5SY",
+      "data": {}
+    },
+    "j181dFWmJZsreC5aexhe6": {
+      "id": "j181dFWmJZsreC5aexhe6",
+      "title": "Ingredient",
+      "desc": "",
+      "updated": 1643496168568,
+      "created": 1643495783027,
+      "custom": {},
+      "fname": "projects.local-recipe-server.data-models.ingredient",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "ed3e212f570c73a315d4f6fb983ea9a4",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 1,
+              "offset": 101
+            },
+            "end": {
+              "line": 5,
+              "column": 57,
+              "offset": 157
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.ingredient"
+        },
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 12,
+              "offset": 372
+            },
+            "end": {
+              "line": 5,
+              "column": 67,
+              "offset": 427
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.ingredient",
+          "alias": "projects.local-recipe-server.data-models.ingredient"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "nr1WXwYYrWSPhs8JKr5SY",
+      "data": {}
+    },
+    "tzRIbPhcnUFIhERjOHFwC": {
+      "id": "tzRIbPhcnUFIhERjOHFwC",
+      "title": "Image",
+      "desc": "",
+      "updated": 1643498017675,
+      "created": 1643497716608,
+      "custom": {},
+      "fname": "projects.local-recipe-server.data-models.image",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "7acb90aa1eaeeeb0f07b072c838fcc22",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server.data-models",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 14,
+              "column": 1,
+              "offset": 317
+            },
+            "end": {
+              "line": 14,
+              "column": 52,
+              "offset": 368
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.data-models.image"
+        }
+      ],
+      "anchors": {},
+      "children": [],
+      "parent": "nr1WXwYYrWSPhs8JKr5SY",
+      "data": {}
+    },
+    "7wwsf6v4iuzqkcmyb5epker": {
+      "id": "7wwsf6v4iuzqkcmyb5epker",
+      "title": "API",
+      "desc": "",
+      "updated": 1647186640172,
+      "created": 1645898468761,
+      "custom": {},
+      "fname": "projects.local-recipe-server.api",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "ef8a90e5d43389b4c480c7650ab20225",
+      "links": [
+        {
+          "from": {
+            "fname": "projects.local-recipe-server",
+            "vaultName": "Dendron"
+          },
+          "type": "backlink",
+          "position": {
+            "start": {
+              "line": 27,
+              "column": 4,
+              "offset": 1742
+            },
+            "end": {
+              "line": 27,
+              "column": 40,
+              "offset": 1778
+            },
+            "indent": []
+          },
+          "value": "projects.local-recipe-server.api",
+          "alias": "projects.local-recipe-server.api"
+        }
+      ],
+      "anchors": {
+        "create-recipe-endpoints": {
+          "type": "header",
+          "text": "Create Recipe Endpoints",
+          "value": "create-recipe-endpoints",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "read-recipe-endpoints": {
+          "type": "header",
+          "text": "Read Recipe Endpoints",
+          "value": "read-recipe-endpoints",
+          "line": 25,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "upl2tbo4rlv4hkgjduvi1i3"
+      ],
+      "parent": "ZG5dy128q8nTg2wptcunO",
+      "data": {}
+    },
+    "upl2tbo4rlv4hkgjduvi1i3": {
+      "id": "upl2tbo4rlv4hkgjduvi1i3",
+      "title": "Serializers",
+      "desc": "",
+      "updated": 1647184676800,
+      "created": 1647183481768,
+      "custom": {},
+      "fname": "projects.local-recipe-server.api.serializers",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "76449089e640d7cd675b353a53c476bc",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "id": "upl2tbo4rlv4hkgjduvi1i3",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.ingredient",
+          "alias": "projects.local-recipe-server.data-models.ingredient",
+          "position": {
+            "start": {
+              "line": 5,
+              "column": 12,
+              "offset": 372
+            },
+            "end": {
+              "line": 5,
+              "column": 67,
+              "offset": 427
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.ingredient"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "id": "upl2tbo4rlv4hkgjduvi1i3",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "alias": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "position": {
+            "start": {
+              "line": 6,
+              "column": 16,
+              "offset": 454
+            },
+            "end": {
+              "line": 6,
+              "column": 78,
+              "offset": 516
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.recipe-ingredient"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "id": "upl2tbo4rlv4hkgjduvi1i3",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "alias": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "position": {
+            "start": {
+              "line": 7,
+              "column": 12,
+              "offset": 539
+            },
+            "end": {
+              "line": 7,
+              "column": 74,
+              "offset": 601
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.recipe-ingredient"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "id": "upl2tbo4rlv4hkgjduvi1i3",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.recipe",
+          "alias": "projects.local-recipe-server.data-models.recipe",
+          "position": {
+            "start": {
+              "line": 11,
+              "column": 13,
+              "offset": 788
+            },
+            "end": {
+              "line": 11,
+              "column": 64,
+              "offset": 839
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.recipe"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "id": "upl2tbo4rlv4hkgjduvi1i3",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.recipe",
+          "alias": "projects.local-recipe-server.data-models.recipe",
+          "position": {
+            "start": {
+              "line": 12,
+              "column": 13,
+              "offset": 863
+            },
+            "end": {
+              "line": 12,
+              "column": 64,
+              "offset": 914
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.recipe"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.api.serializers",
+            "id": "upl2tbo4rlv4hkgjduvi1i3",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "alias": "projects.local-recipe-server.data-models.recipe-ingredient",
+          "position": {
+            "start": {
+              "line": 13,
+              "column": 49,
+              "offset": 974
+            },
+            "end": {
+              "line": 13,
+              "column": 111,
+              "offset": 1036
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.data-models.recipe-ingredient"
+          }
+        }
+      ],
+      "anchors": {
+        "recipe-ingredient-serializer": {
+          "type": "header",
+          "text": "Recipe-Ingredient Serializer",
+          "value": "recipe-ingredient-serializer",
+          "line": 9,
+          "column": 0,
+          "depth": 2
+        },
+        "recipe-serializer": {
+          "type": "header",
+          "text": "Recipe Serializer",
+          "value": "recipe-serializer",
+          "line": 15,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [],
+      "parent": "7wwsf6v4iuzqkcmyb5epker",
+      "data": {}
+    },
+    "ktbej6pqdxs6n5ljh3ftv6g": {
+      "id": "ktbej6pqdxs6n5ljh3ftv6g",
+      "title": "Android App Design",
+      "desc": "",
+      "updated": 1657385846251,
+      "created": 1657385269943,
+      "custom": {},
+      "fname": "projects.local-recipe-server.android-app-design",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "419a28a68cedbda9d2e93b4e79603d19",
+      "links": [
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.android-app-design",
+            "id": "ktbej6pqdxs6n5ljh3ftv6g",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services.text-parsing",
+          "alias": "projects.local-recipe-server.services.text-parsing",
+          "position": {
+            "start": {
+              "line": 8,
+              "column": 110,
+              "offset": 653
+            },
+            "end": {
+              "line": 8,
+              "column": 164,
+              "offset": 707
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services.text-parsing"
+          }
+        },
+        {
+          "type": "wiki",
+          "from": {
+            "fname": "projects.local-recipe-server.android-app-design",
+            "id": "ktbej6pqdxs6n5ljh3ftv6g",
+            "vaultName": "Dendron"
+          },
+          "value": "projects.local-recipe-server.services.text-assigment",
+          "alias": "projects.local-recipe-server.services.text-assigment",
+          "position": {
+            "start": {
+              "line": 8,
+              "column": 169,
+              "offset": 712
+            },
+            "end": {
+              "line": 8,
+              "column": 225,
+              "offset": 768
+            },
+            "indent": []
+          },
+          "xvault": false,
+          "sameFile": false,
+          "to": {
+            "fname": "projects.local-recipe-server.services.text-assigment"
+          }
+        }
+      ],
+      "anchors": {
+        "data-storage-question": {
+          "type": "header",
+          "text": "Data Storage question",
+          "value": "data-storage-question",
+          "line": 13,
+          "column": 0,
+          "depth": 2
+        },
+        "initial-decision": {
+          "type": "header",
+          "text": "Initial decision",
+          "value": "initial-decision",
+          "line": 17,
+          "column": 0,
+          "depth": 3
+        }
+      },
+      "children": [],
+      "parent": "ZG5dy128q8nTg2wptcunO",
+      "data": {}
+    }
+  },
+  "domains": [
+    {
+      "id": "0bwos7t08sg0btcv0xz15jj",
+      "title": "My Notes",
+      "desc": "The personal notes of Ryan Manzer - he puts the Manzer in Supermanzer",
+      "updated": 1656877804079,
+      "created": 1653768544007,
+      "custom": {
+        "nav_order": 0,
+        "permalink": "/"
+      },
+      "fname": "root",
+      "type": "note",
+      "vault": {
+        "fsPath": ".",
+        "selfContained": true,
+        "name": "Dendron"
+      },
+      "contentHash": "c60847c1bac11a21d4df34db59344c62",
+      "links": [],
+      "anchors": {
+        "welcome-to-my-brain": {
+          "type": "header",
+          "text": "Welcome to my brain",
+          "value": "welcome-to-my-brain",
+          "line": 8,
+          "column": 0,
+          "depth": 2
+        }
+      },
+      "children": [
+        "ZMf4aL2sSZBsUMJgMhn0R"
+      ],
+      "parent": null,
+      "data": {},
+      "body": "\n## Welcome to my brain\n\nI use this wiki site and [Dendron](https://wiki.dendron.so/) to organize my thoughts about various software projects and ideas.  This tool is primarily to store my own thoughts and allow me to document my development process.  This helps me better organize these projects and plan future development.  \n\nIf others find this site interesting and possibly useful, bonus!"
+    }
+  ],
+  "noteIndex": {
+    "id": "0bwos7t08sg0btcv0xz15jj",
+    "title": "My Notes",
+    "desc": "The personal notes of Ryan Manzer - he puts the Manzer in Supermanzer",
+    "updated": 1656877804079,
+    "created": 1653768544007,
+    "custom": {
+      "nav_order": 0,
+      "permalink": "/"
+    },
+    "fname": "root",
+    "type": "note",
+    "vault": {
+      "fsPath": ".",
+      "selfContained": true,
+      "name": "Dendron"
+    },
+    "contentHash": "c60847c1bac11a21d4df34db59344c62",
+    "links": [],
+    "anchors": {
+      "welcome-to-my-brain": {
+        "type": "header",
+        "text": "Welcome to my brain",
+        "value": "welcome-to-my-brain",
+        "line": 8,
+        "column": 0,
+        "depth": 2
+      }
+    },
+    "children": [
+      "ZMf4aL2sSZBsUMJgMhn0R"
+    ],
+    "parent": null,
+    "data": {},
+    "body": "\n## Welcome to my brain\n\nI use this wiki site and [Dendron](https://wiki.dendron.so/) to organize my thoughts about various software projects and ideas.  This tool is primarily to store my own thoughts and allow me to document my development process.  This helps me better organize these projects and plan future development.  \n\nIf others find this site interesting and possibly useful, bonus!"
+  },
+  "vaults": [
+    {
+      "fsPath": ".",
+      "selfContained": true,
+      "name": "Dendron"
+    }
+  ]
+}

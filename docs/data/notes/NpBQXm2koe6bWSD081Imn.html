@@ -1,0 +1,54 @@
+<h1 id="chapter-4"><a aria-hidden="true" class="anchor-heading" href="#chapter-4"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chapter 4</h1>
+<p>This chapter will introduce the <code>Service Layer</code> and further abstract the interface with our domain &#x26; repository patterns.  We wll also start to wire up our Flask API.</p>
+<h2 id="starting-architecture"><a aria-hidden="true" class="anchor-heading" href="#starting-architecture"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Starting Architecture:</h2>
+<div class="mermaid">
+  flowchart TD;
+A[Tests]
+subgraph Repository
+    direction LR
+    B[SQLAlchemy Repository] --> C[Abstract Respository]
+end
+B --> D[(DB)]
+subgraph Domain
+    E[/allocate/] --> F[Batch] --> G((Order LIne))
+end
+A --> Repository
+A --> Domain
+C --> Domain
+</div>
+<hr>
+<h2 id="eventual-architecture"><a aria-hidden="true" class="anchor-heading" href="#eventual-architecture"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Eventual Architecture</h2>
+<p>We are going to build out our system to match the following architecture:</p>
+<div class="mermaid">
+  flowchart TD;
+ZA[Flask] --invoke--> ServiceLayer
+ZB[Tests] --invoke--> ServiceLayer
+subgraph ServiceLayer
+    G[/service.allocate /]
+    H[/service.add_batch/]
+end
+subgraph Domain
+    direction LR
+    D[/allocate /]
+    E[ Batch ]
+    F((Order Line))
+    D --> E --> F
+end
+subgraph Repositories
+    direction LR
+    A[Fake Repository]
+    B[SQLAlchemy Repository]
+    C[Abstract Repository]
+    A --> C
+    B --> C
+end
+ZC[(DB)]
+B --> ZC
+Repositories --retrieves--> Domain
+ServiceLayer --models.allocate-->Domain
+ServiceLayer --list/add batches-->Repositories
+ZA --instantiates-->B
+ZB --instantiatesP-->A
+</div>
+<p>We will also be exploring the differences between ochestration logic, business logic and interface code.  The <code>Service Layer</code> we introduce in the above architecture will handle the orchestration of workflows.  It also serves to define the use case(s) for our system.</p>
+<p>Impmlementing a service layer with our repository pattern also allows us to write tests faster and more complete.</p>

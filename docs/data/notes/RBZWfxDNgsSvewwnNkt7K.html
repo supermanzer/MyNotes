@@ -1,0 +1,21 @@
+<h1 id="core-principles"><a aria-hidden="true" class="anchor-heading" href="#core-principles"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Core Principles</h1>
+<p>These are the primary principles of software engineering that will be utilized throughout this book.</p>
+<h2 id="encapsulationabstraction"><a aria-hidden="true" class="anchor-heading" href="#encapsulationabstraction"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Encapsulation/Abstraction</h2>
+<p>One of the most common paradigms used by programmers to simplify code and improve readability.  This is done through two closely related concepts:</p>
+<ul>
+<li>Simplifying behavior</li>
+<li>Hiding data.</li>
+</ul>
+<p>In this book we will be focusing on simplifying behavior by <em>encapsulating</em> implementation details in <em>abstractions</em>.</p>
+<h2 id="layering"><a aria-hidden="true" class="anchor-heading" href="#layering"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Layering</h2>
+<p>Layering is the process of separating software components into layers that represent their area of concern.  A classic example of this for a web application is as follows:</p>
+<div class="mermaid">
+  graph TD;
+A[Presentation Layer] --Depends On--> B[Business Logic]
+B --Depends on--> C[Database Layer]
+</div>
+<h2 id="dependency-inversion-principle"><a aria-hidden="true" class="anchor-heading" href="#dependency-inversion-principle"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Dependency Inversion Principle</h2>
+<p>This practice means inverting the common dependency of high level modules on low level modules.  Using abstractions for the interfaces between each means no part of the software being designed is dependent on a specific implementation of any other.  As long as the abstractions maintain the same interfaces we can change our concrete components at will.</p>
+<h2 id="domain-model"><a aria-hidden="true" class="anchor-heading" href="#domain-model"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Domain Model:</h2>
+<p>This is the middle layer, or business logic layer, of our application.  A common flaw that causes technical debt to accumulate is allowing business logic to spread across all layers, making changes difficult to implement. </p>
+<p>The Domain model approach works to encapsulate all business logic aspects of the problem software is attempting to solve in the business layer.  Presenting the visual layer, triggering actions, persisting data; these are separate from the domain.</p>

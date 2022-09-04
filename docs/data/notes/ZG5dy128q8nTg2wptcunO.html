@@ -1,0 +1,43 @@
+<h1 id="local-recipe-server"><a aria-hidden="true" class="anchor-heading" href="#local-recipe-server"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Local Recipe Server</h1>
+<h2 id="motivation"><a aria-hidden="true" class="anchor-heading" href="#motivation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Motivation</h2>
+<p>I love cooking and recipes.  Unfortunately I have amassed enough magazines and cookbooks that, when I want to make a particular recipe, I give up half way because finding it so laborious.  I realized I don't need hard copies, I need a searchable database with an appealing interface.  Also I've gathered more than a few Raspberry Pis and I wanted to do something cool with one (or more) of them.</p>
+<p>Also a pet peeve of mine is how many recipe websites take up your entire phone/tablet sceen with banner adds, random stories only vaguely related to the recipe at hand, and overlapping vidoes you must carefull exit out of to avoid being redirected to some page about home loans, exciting new athletic socks, stock tips, etc.  I wanted to build an interface for viewing a recipe that was JUST THE RECIPE.</p>
+<h2 id="project-definition"><a aria-hidden="true" class="anchor-heading" href="#project-definition"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Project Definition</h2>
+<p>The purpose of this project is to allow users to run a server on their local (home) wireless network that does 2 things related to recipes.</p>
+<ol>
+<li>Take photographs of recipes in cookbooks or magazines and save them to the server</li>
+<li>View recipes broken down by ingredients and steps in a mobile friendly interface</li>
+</ol>
+<h2 id="user-interfaces"><a aria-hidden="true" class="anchor-heading" href="#user-interfaces"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><a href="/MyNotes/notes/8lZ0plvgBBcCInx2b90To">User Interfaces</a></h2>
+<p>The user interacts with this application through two distinct interfaces with separate areas of concern.</p>
+<ul>
+<li>Photo upload interface [Create Recipe]</li>
+<li>Recipe search/view interface [List/Retrieve Recipe]</li>
+</ul>
+<h2 id="data-models"><a aria-hidden="true" class="anchor-heading" href="#data-models"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><a href="/MyNotes/notes/nr1WXwYYrWSPhs8JKr5SY">Data Models</a></h2>
+<p>A rough sketch of the data structures we will use to provide data persistence and all those nifty searching and filtering mechanisms.</p>
+<h2 id="services"><a aria-hidden="true" class="anchor-heading" href="#services"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><a href="/MyNotes/notes/Eu3Ti3xC3181U4eLOWxsv">Services</a></h2>
+<p>These are encapsulated pieces of business logic that perform the tricky custom bits of the application.</p>
+<h2 id="api"><a aria-hidden="true" class="anchor-heading" href="#api"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><a href="/MyNotes/notes/7wwsf6v4iuzqkcmyb5epker">API</a></h2>
+<p>The endpoints provided by the server and consumed by the client application to provide the user with CRUD capabilities for recipes.</p>
+<h2 id="potential-pi-architecture"><a aria-hidden="true" class="anchor-heading" href="#potential-pi-architecture"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Potential Pi Architecture</h2>
+<p>This will depend on the processing power and storage needs of all the above requirements.  Given the above definitions are already biting off a fair amount of development work I will likely try to keep this to a single Raspberry Pi 4B.  I'll use a 128GB flash drive for storage so that <em>should</em> provide the capacity to store a decent amount of recipes.  While I will likely be using Docker containers to build this application (2 minimum - Client App Server, API Server), I will start with all of them running on a single Pi.  If this proves too much work I will consider tackling the whole distributed k8s mess but for now I'll try to keep it simple. </p>
+<p>With simplicity in mind I plan to stick to just using the SQLite database.  It functions perfectly well with solid performance when accessed by a single process.  Since this application is desinged for a single user making sequential requests, this should be sufficient.</p>
+<h2 id="stretch-goal"><a aria-hidden="true" class="anchor-heading" href="#stretch-goal"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>STRETCH Goal</h2>
+<p>This project will begin using a basic modern web site architecture using a REST API and a Vue.js front-end (my preferred framework).  This should allow for the development of an Android App that communicates with the REST API.  It's an area of development I have absolutely no experience in but it might be fun to try.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/7wwsf6v4iuzqkcmyb5epker">API</a></li>
+<li><a href="/MyNotes/notes/ktbej6pqdxs6n5ljh3ftv6g">Android App Design</a></li>
+<li><a href="/MyNotes/notes/nr1WXwYYrWSPhs8JKr5SY">Data Models</a></li>
+<li><a href="/MyNotes/notes/3u8xz9de0m56m2pu466elrr">ML Tasks</a></li>
+<li><a href="/MyNotes/notes/Eu3Ti3xC3181U4eLOWxsv">Services</a></li>
+<li><a href="/MyNotes/notes/ykosvctv284qjvdsp13tbwj">Todo</a></li>
+<li><a href="/MyNotes/notes/8lZ0plvgBBcCInx2b90To">User Interfaces</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/ZMf4aL2sSZBsUMJgMhn0R">Projects</a></li>
+</ul>

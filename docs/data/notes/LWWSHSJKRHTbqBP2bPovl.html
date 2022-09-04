@@ -1,0 +1,18 @@
+<h1 id="chapter-1"><a aria-hidden="true" class="anchor-heading" href="#chapter-1"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chapter 1</h1>
+<h1 id="domain-model"><a aria-hidden="true" class="anchor-heading" href="#domain-model"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Domain Model</h1>
+<p>The domain is the problem you are trying to solve or the activities you are looking to support through your software. In the scenario where you are building a piece of software to support a business the domain represent the aspects of running the business.</p>
+<p>It is well worth the time to spend the first part of designing the software discussing the problem to be solved with the subject matter experts.  This includes learning the domain specfic terminology (Domain Language) and the processes they represent.  You will want to integrate this into your software in order to better map software functionality to the problems you are solving.</p>
+<h2 id="concrete-example"><a aria-hidden="true" class="anchor-heading" href="#concrete-example"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Concrete Example</h2>
+<p>For this book we will be using the example of an online furniture retailer as the business we are looking to support. To support this business we be building software to handle purchasing stock (furniture) from suppliers, allocating stock (either to the warehouse or to placed orders), taking sales online, and tracking stock in a warehouse.</p>
+<h3 id="example-domain"><a aria-hidden="true" class="anchor-heading" href="#example-domain"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Example Domain</h3>
+<p>We have defined what the software should do.  So the domain of our problem is the necesary pieces to hanlde that.  In this case are building out </p>
+<ol>
+<li>A series of data models to support what we need
+<ol>
+<li><code>Batch</code> represents a lot of stock units purchased from a supplier</li>
+<li><code>OrderLine</code> represents a line item purchased by a customer</li>
+<li>Functionallity to implement stock allocation that follows the business rules defined by subject matter experts</li>
+</ol>
+</li>
+</ol>
+<p>So far we have a useful data model that is easy to inspect, test, and modify</p>

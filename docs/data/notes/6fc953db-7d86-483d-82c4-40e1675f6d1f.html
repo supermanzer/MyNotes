@@ -1,0 +1,28 @@
+<h1 id="ndbc-reader"><a aria-hidden="true" class="anchor-heading" href="#ndbc-reader"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>NDBC Reader</h1>
+<ul>
+<li><strong>Project:</strong> </li>
+</ul>
+<p>These notes are being added only after the project's complexity has reached a point where I feel the need to jot things down in order to keep track of everything in my head.  Additionally, even though these are notes to myself about my own software projects, I still write as if I'm explaining these ideas to someone else.  It's a habit I picked up when I started coding in grad school and, since it works for me, I do not feel any need to change. Alright, on to the confusing bits!</p>
+<hr>
+<h2 id="next-steps"><a aria-hidden="true" class="anchor-heading" href="#next-steps"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Next steps</h2>
+<p>This project has been neglected since I changed jobs and have had to spend more of my free time learning different programming languages and paradigms in order to keep up.  However that comes with a bonus of exposure to more enterprise grade software architecture.  With that in mind I plan to make a more rigorous effort to use a more design pattern driven approach to the NDBC Reader package.  </p>
+<p>What follows is a first draft of the patterns and approaches I think would make sense to employ in this effort.</p>
+<ul>
+<li><strong>Data Store/Data Transfer Object:</strong> This is a more codified approach to storing the various elemets of the data that the NDBC Reader project is the focus of.  This will also encapsulate saving a Data Buoy object to disk and re-instantiating from saved data.</li>
+<li><strong>Repository:</strong> The repository pattern encapsulates the logic required to create, delete, and update the data.  </li>
+<li><strong>API Services:</strong> These services will encapsulate the logic required to make specific API requests.  </li>
+<li><strong>Analysis Service:</strong> This will encapsulate the rudimentary analyses that will be added to the NDBC Reader package and the Data Buoy class.</li>
+<li><strong>Unit of Work:</strong> This will abstract the communication between the API services (fetching data) and the repository (storing data).</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/b235045c-af65-4673-9aca-c29083c8556c">Class Split</a></li>
+<li><a href="/MyNotes/notes/il0d3buqdbkcmgbgfovas0p">Desired Functionalities</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/ZMf4aL2sSZBsUMJgMhn0R">Projects</a></li>
+<li><a href="/MyNotes/notes/il0d3buqdbkcmgbgfovas0p">Desired Functionalities</a></li>
+</ul>

@@ -1,0 +1,110 @@
+<h1 id="redesign"><a aria-hidden="true" class="anchor-heading" href="#redesign"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Redesign</h1>
+<h2 id="functional-requriements"><a aria-hidden="true" class="anchor-heading" href="#functional-requriements"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Functional Requriements</h2>
+<p>I'll begin with the functional requirements for both customers (library patrons) and admin (library staff).</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Functional Requirements</span></div>
+<a href="/MyNotes/notes/yWLcFix3z1p5cZeHnOGLt" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="functional-requirements-for-patrons"><a aria-hidden="true" class="anchor-heading" href="#functional-requirements-for-patrons"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Functional Requirements for Patrons</h2>
+<ul>
+<li>Display list/detail of books in the library collection</li>
+<li>Display copies of a specific book, their status (Available, On Loan, etc), as well as due date (if applicable).</li>
+<li>Display book borrowing history for specific patrons</li>
+<li>Display total late fees as well as individual borrowed books that resulted in late fees</li>
+<li>Allow patrons to check out book copy <em>only if</em> it is available for check out.</li>
+<li>Allow patrons to place a reservation for a book <em>only if</em> no copies are available.</li>
+<li>Allow pattrons to cancel a reservation.</li>
+<li>Notify patrons when a copy of a reserved book has become available.</li>
+</ul>
+<h2 id="functional-requirements-for-library-staff"><a aria-hidden="true" class="anchor-heading" href="#functional-requirements-for-library-staff"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Functional Requirements for Library Staff</h2>
+<ul>
+<li>Provide lists views of books by status</li>
+<li>Enable librarians to send notifications of late fees to patrons</li>
+<li>Allow librarians to update book status both individually and in bulk operations.</li>
+</ul>
+</div></div><p></p><p></p>
+<h2 id="data-models"><a aria-hidden="true" class="anchor-heading" href="#data-models"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Data Models</h2>
+<p>Now let's take a look at what data models will be required to support this functionality.</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Data Models</span></div>
+<a href="/MyNotes/notes/RbDpMHj2PziKr18OgTvYk" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="data-model-requirements"><a aria-hidden="true" class="anchor-heading" href="#data-model-requirements"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Data Model Requirements</h2>
+<ul>
+<li>
+<p><strong>Genre</strong>:  Capture data on literary genres</p>
+<ul>
+<li>Relates to Book instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Author</strong>: Capture details of the authors in a library collection</p>
+<ul>
+<li>Relates to Book Instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Book</strong>: Capture a general book and it's attributes (Author, Genre, etc.)</p>
+<ul>
+<li>Relates to Author, Genre, Copy, and Reservation instances.</li>
+</ul>
+</li>
+<li>
+<p><strong>Copy</strong>: Store data on specific copies of books.  These are the physical representations of the general Book class.</p>
+<ul>
+<li>Relates to Book instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Reservation</strong>: Catpure details of a reservation by a patron for a book</p>
+<ul>
+<li>Relates to Book, BorrowedCopy, and User instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Borrowing History</strong>: Captures details of patrons checking out books.  Late fees are captured in these records</p>
+<ul>
+<li>Relates to Copy, User instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Users</strong>: Library patrons and librarians</p>
+<ul>
+<li>Relates to Reservation, and Borrowing History</li>
+</ul>
+</li>
+</ul>
+<h2 id="erd-for-data-models"><a aria-hidden="true" class="anchor-heading" href="#erd-for-data-models"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>ERD for Data Models</h2>
+<div class="mermaid">
+  erDiagram
+    GENRE }O --|{ BOOK : genres
+    AUTHOR }o -- |{ BOOK : authors 
+    BOOK || -- o{ COPY : copies
+    COPY || -- |{ BORROWING : check-out
+    BOOK }o  -- |{ RESERVATION : reservation
+    RESERVATION |o-- o| BORROWING : fulfilled
+    USER || -- o{ RESERVATION : reserved
+    USER || -- o{ BORROWING : history
+</div>
+</div></div><p></p><p></p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/RbDpMHj2PziKr18OgTvYk">Data Models</a></li>
+<li><a href="/MyNotes/notes/yWLcFix3z1p5cZeHnOGLt">Functional Requirements</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/c49bdcee-daa2-4b8d-af33-af74f37173f0">Localibrary</a></li>
+</ul>

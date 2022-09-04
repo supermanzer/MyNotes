@@ -1,0 +1,110 @@
+<h1 id="copy_borrowed"><a aria-hidden="true" class="anchor-heading" href="#copy_borrowed"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Copy_borrowed</h1>
+<pre class="language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">BookInstance</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Model representing a specific copy of a book"""</span>
+    <span class="token comment"># CONSTANTS - I FIND THIS APPROACH USEFUL EVEN THOUGH IT SEEMS REDUNDANT</span>
+    MAINTENANCE <span class="token operator">=</span> <span class="token string">'m'</span>
+    ON_LOAN <span class="token operator">=</span> <span class="token string">'o'</span>
+    AVAILABLE <span class="token operator">=</span> <span class="token string">'a'</span>
+    RESERVED <span class="token operator">=</span> <span class="token string">'r'</span>
+
+    LOAN_STATUS <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">(</span>MAINTENANCE<span class="token punctuation">,</span> <span class="token string">'Maintenance'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>ON_LOAN<span class="token punctuation">,</span> <span class="token string">'On loan'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>AVAILABLE<span class="token punctuation">,</span> <span class="token string">'Available'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>RESERVED<span class="token punctuation">,</span> <span class="token string">'Reserved'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token comment"># FIELDS</span>
+    <span class="token builtin">id</span> <span class="token operator">=</span> models<span class="token punctuation">.</span>UUIDField<span class="token punctuation">(</span>primary_key<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> default<span class="token operator">=</span>uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">,</span>
+                          help_text<span class="token operator">=</span><span class="token string">'Unique ID for particular book'</span><span class="token punctuation">)</span>
+    book <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>
+        <span class="token string">'Book'</span><span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>RESTRICT<span class="token punctuation">,</span> related_name<span class="token operator">=</span><span class="token string">'instances'</span><span class="token punctuation">)</span>
+    imprint <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">)</span>
+    due_date <span class="token operator">=</span> models<span class="token punctuation">.</span>DateField<span class="token punctuation">(</span>null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    status <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> choices<span class="token operator">=</span>LOAN_STATUS<span class="token punctuation">,</span>
+                              blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> default<span class="token operator">=</span>MAINTENANCE<span class="token punctuation">,</span> help_text<span class="token operator">=</span><span class="token string">'Book availability'</span><span class="token punctuation">)</span>
+    <span class="token comment"># Meta options</span>
+
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        verbose_name <span class="token operator">=</span> <span class="token string">'Copy'</span>
+        verbose_name_plural <span class="token operator">=</span> <span class="token string">'Copies'</span>
+        ordering <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'due_date'</span><span class="token punctuation">]</span>
+
+    <span class="token comment"># Model methods</span>
+    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string-interpolation"><span class="token string">f'</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">}</span></span><span class="token string"> (</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>book<span class="token punctuation">.</span>title<span class="token punctuation">}</span></span><span class="token string">)'</span></span>
+
+    <span class="token decorator annotation punctuation">@property</span>
+    <span class="token keyword">def</span> <span class="token function">overdue</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>due_date <span class="token keyword">and</span> date<span class="token punctuation">.</span>today<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> self<span class="token punctuation">.</span>due_date<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
+        <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">class</span> <span class="token class-name">BorrowedCopy</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""Defining a custom model to relate the borrowing of a book instance to a library patron"""</span>
+    <span class="token comment"># Constants</span>
+    <span class="token comment"># Length of time a book can be checked out for</span>
+    CHECKOUT_DURATION <span class="token operator">=</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span><span class="token number">14</span><span class="token punctuation">)</span>
+    LATE_FEE <span class="token operator">=</span> <span class="token number">0.5</span>  <span class="token comment"># The per day fee assessed if a copy is late</span>
+    <span class="token comment"># Fields</span>
+    patron <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>
+        User<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>CASCADE<span class="token punctuation">,</span> related_name<span class="token operator">=</span><span class="token string">'borrowed_books'</span><span class="token punctuation">)</span>
+    copy <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>BookInstance<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>CASCADE<span class="token punctuation">)</span>
+    date_checked_out <span class="token operator">=</span> models<span class="token punctuation">.</span>DateField<span class="token punctuation">(</span>null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    due_date <span class="token operator">=</span> models<span class="token punctuation">.</span>DateField<span class="token punctuation">(</span>null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    date_returned <span class="token operator">=</span> models<span class="token punctuation">.</span>DateField<span class="token punctuation">(</span>null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> blank<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    assessed_late_fee <span class="token operator">=</span> models<span class="token punctuation">.</span>FloatField<span class="token punctuation">(</span>
+        verbose_name<span class="token operator">=</span><span class="token string">'Late Fee'</span><span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> help_text<span class="token operator">=</span><span class="token string">'Late fee assessed (if any)'</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Meta options</span>
+    <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span>
+        ordering <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">,</span> <span class="token punctuation">)</span>
+        verbose_name <span class="token operator">=</span> <span class="token string">'Checkout History'</span>
+        verbose_name_plural <span class="token operator">=</span> <span class="token string">'Checkout History'</span>
+
+    <span class="token comment"># Model methods</span>
+    <span class="token keyword">def</span> <span class="token function">save</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""Override default save method to set due date"""</span>
+        <span class="token comment"># THIS IS NOT GREAT IMHO.</span>
+        <span class="token comment"># When we add the subquery to update the status we need to</span>
+        <span class="token comment"># place the import statement in here to avoid circular imports</span>
+        <span class="token comment"># Therefore I think this would better be handled using the</span>
+        <span class="token comment"># Signals framework in DJango</span>
+        <span class="token comment"># https://docs.djangoproject.com/en/3.2/topics/signals/</span>
+        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Calling model save method for </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+        <span class="token comment"># We are going to use these records to hold reservations as well</span>
+        <span class="token comment"># so we need to accomodate situations where date_checked_out = None</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>date_checked_out <span class="token keyword">and</span> <span class="token keyword">not</span> self<span class="token punctuation">.</span>due_date<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>due_date <span class="token operator">=</span> self<span class="token punctuation">.</span>date_checked_out <span class="token operator">+</span> self<span class="token punctuation">.</span>CHECKOUT_DURATION
+            <span class="token comment"># This bit is redundant and I'll likely remove the due_date from</span>
+            <span class="token comment"># the Instance model but for now, let's keep our data in sync</span>
+            self<span class="token punctuation">.</span>copy<span class="token punctuation">.</span>due_date <span class="token operator">=</span> self<span class="token punctuation">.</span>due_date
+            self<span class="token punctuation">.</span>copy<span class="token punctuation">.</span>status <span class="token operator">=</span> BookInstance<span class="token punctuation">.</span>ON_LOAN
+            self<span class="token punctuation">.</span>copy<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>date_returned <span class="token keyword">and</span> self<span class="token punctuation">.</span>date_returned <span class="token operator">></span> self<span class="token punctuation">.</span>due_date<span class="token punctuation">:</span>
+            <span class="token comment"># Assigning late fee if returned after due date</span>
+            self<span class="token punctuation">.</span>assessed_late_fee <span class="token operator">=</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>date_returned <span class="token operator">-</span>
+                                      self<span class="token punctuation">.</span>due_date<span class="token punctuation">)</span><span class="token punctuation">.</span>days <span class="token operator">*</span> self<span class="token punctuation">.</span>LATE_FEE
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+
+    <span class="token decorator annotation punctuation">@property</span>
+    <span class="token keyword">def</span> <span class="token function">late_fee</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""Calculate and return late fee"""</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>assessed_late_fee<span class="token punctuation">:</span>
+            <span class="token comment"># If the book has been returned we have assessed the late fee and made it static</span>
+            <span class="token comment"># The we just return the fee</span>
+            <span class="token keyword">return</span> self<span class="token punctuation">.</span>assessed_late_fee
+        <span class="token keyword">elif</span> self<span class="token punctuation">.</span>due_date<span class="token punctuation">:</span>
+            <span class="token comment"># If it hasn't been returned the late fee is dynamically calculated</span>
+            td <span class="token operator">=</span> date<span class="token punctuation">.</span>today<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            past_due <span class="token operator">=</span> td <span class="token operator">-</span> self<span class="token punctuation">.</span>due_date
+            <span class="token keyword">return</span> past_due<span class="token punctuation">.</span>days <span class="token operator">*</span> self<span class="token punctuation">.</span>LATE_FEE <span class="token keyword">if</span> past_due<span class="token punctuation">.</span>days <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">else</span> <span class="token number">0</span>
+        <span class="token comment"># If there's no due date it hasn't been chacked out yet (Reserved), nothing to see here</span>
+        <span class="token keyword">return</span> <span class="token boolean">None</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/c874cfd9-6e98-431b-a86a-b60d0cbf3a69">Approaches</a></li>
+</ul>

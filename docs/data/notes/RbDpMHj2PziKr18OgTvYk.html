@@ -1,0 +1,63 @@
+<h1 id="data-models"><a aria-hidden="true" class="anchor-heading" href="#data-models"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Data Models</h1>
+<h2 id="data-model-requirements"><a aria-hidden="true" class="anchor-heading" href="#data-model-requirements"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Data Model Requirements</h2>
+<ul>
+<li>
+<p><strong>Genre</strong>:  Capture data on literary genres</p>
+<ul>
+<li>Relates to Book instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Author</strong>: Capture details of the authors in a library collection</p>
+<ul>
+<li>Relates to Book Instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Book</strong>: Capture a general book and it's attributes (Author, Genre, etc.)</p>
+<ul>
+<li>Relates to Author, Genre, Copy, and Reservation instances.</li>
+</ul>
+</li>
+<li>
+<p><strong>Copy</strong>: Store data on specific copies of books.  These are the physical representations of the general Book class.</p>
+<ul>
+<li>Relates to Book instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Reservation</strong>: Catpure details of a reservation by a patron for a book</p>
+<ul>
+<li>Relates to Book, BorrowedCopy, and User instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Borrowing History</strong>: Captures details of patrons checking out books.  Late fees are captured in these records</p>
+<ul>
+<li>Relates to Copy, User instances</li>
+</ul>
+</li>
+<li>
+<p><strong>Users</strong>: Library patrons and librarians</p>
+<ul>
+<li>Relates to Reservation, and Borrowing History</li>
+</ul>
+</li>
+</ul>
+<h2 id="erd-for-data-models"><a aria-hidden="true" class="anchor-heading" href="#erd-for-data-models"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>ERD for Data Models</h2>
+<div class="mermaid">
+  erDiagram
+    GENRE }O --|{ BOOK : genres
+    AUTHOR }o -- |{ BOOK : authors 
+    BOOK || -- o{ COPY : copies
+    COPY || -- |{ BORROWING : check-out
+    BOOK }o  -- |{ RESERVATION : reservation
+    RESERVATION |o-- o| BORROWING : fulfilled
+    USER || -- o{ RESERVATION : reserved
+    USER || -- o{ BORROWING : history
+</div>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/mxR7kHms7h4o4hk6U5ECS">Redesign</a></li>
+</ul>

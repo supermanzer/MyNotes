@@ -1,0 +1,83 @@
+<h1 id="class-split"><a aria-hidden="true" class="anchor-heading" href="#class-split"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Class Split</h1>
+<p>The idea to break up the <code>DataBuoy</code> class in the <code>NDBC</code> package came from a desire to separate the concerns and de-couple the functionality relating to</p>
+<ol>
+<li>Handle web requests/responses to and from NDBC servers</li>
+<li>Parse, store, and save station data.</li>
+</ol>
+<p>I imagine that there may be usecases where researchers are only interested in a limited subset of the functionality present in the <code>DataBuoy</code> class.  In that respect <em>I hope</em> this effort will be more useful that just helping me simplify the process of modifying the existing code base.  However, it has caused me to have to rethink the way the core processes of the <code>DataBuoy</code> class due to the way in which NDBC server request functionality is tightly coupled with data parsing and storage.  Let's take a look at the new structure by examing the classes and their functionality</p>
+<ul>
+<li>
+<h4 id="stationwebmanager-manages-interactions-with-ndbc-web-servers"><a aria-hidden="true" class="anchor-heading" href="#stationwebmanager-manages-interactions-with-ndbc-web-servers"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><code>StationWebManager</code>: Manages interactions with NDBC web servers.</h4>
+<ul>
+<li>Stores constants related to web requests (e.g. <code>DATA_PACKAGES</code>, <code>STATION_URL</code>, etc.)</li>
+<li>Creates station URLs for each month/year requested and checks to see whether they exist on the NDBC server.</li>
+<li>Fetches/parses station metadata.</li>
+<li>Performs station search requests</li>
+<li>Fetches specified data packages for time periods requested</li>
+</ul>
+</li>
+<li>
+<h4 id="datamanager-handles-data-parsing-storing-saving-and-access"><a aria-hidden="true" class="anchor-heading" href="#datamanager-handles-data-parsing-storing-saving-and-access"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><code>DataManager</code>: Handles data parsing, storing, saving, and access.</h4>
+<ul>
+<li>Performs data type asignments</li>
+<li>Parses date part columns into Python datetime values</li>
+<li>Checks for NDBC "bad data" flags (all digits set to 9) and replaces bad data with NumPy <code>NaN</code> value.</li>
+<li>Saves parsed data to <code>data</code> attribute.</li>
+</ul>
+</li>
+<li>
+<h4 id="db2-coordinates-subclass-functionality---eventually-renamed-to-databuoy-class-once-all-tests-pass"><a aria-hidden="true" class="anchor-heading" href="#db2-coordinates-subclass-functionality---eventually-renamed-to-databuoy-class-once-all-tests-pass"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><code>DB2</code>: Coordinates Subclass functionality - eventually renamed to <code>DataBuoy</code> class once all tests pass.</h4>
+<ul>
+<li>Coordinates the use of <code>StationWebManager</code> request/response methods with <code>DataManager</code> parsing and storage methods behind a simple interface.</li>
+<li>Provide simplified data access using <code>@property</code> decorated functions.</li>
+</ul>
+</li>
+</ul>
+<h2 id="outstanding-questions"><a aria-hidden="true" class="anchor-heading" href="#outstanding-questions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Outstanding Questions:</h2>
+<p>The current implementation allows a user to make a request for a data package without specifying months or years.  In this case the function starts at the current month/year and checks for valid data, stepping back one month for reach failed request until either </p>
+<ul>
+<li>A valid monthly summary can be found and returned</li>
+<li>All months in the current and previous year have been queried.</li>
+</ul>
+<p>The revised approach for fetching data (shown below) is designed to make a request for a single time period</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Station Web Manager</span></div>
+<a href="/MyNotes/notes/6a1859bd-62ec-4563-952e-67c3b65a664c" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h4 id="fetch_data"><a aria-hidden="true" class="anchor-heading" href="#fetch_data"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a><code>fetch_data()</code></h4>
+<p>I think this is going to be the exposed wrapper function that will encapsulate all the actions that go into making a request to the NDBC server.  Each call to this function will represent a request for a single data package for a distinct time period.  It will either return a Pandas dataframe of the raw data if the data package is available for the station and time period requested <strong>or</strong> it will return a string notifying the calling function that this station/data package/time period combination is not available.  Let's take a look at the steps:</p>
+<ul>
+<li>
+<p>Check if data type requested is in the <code>DATA_PACKAGES</code> dictionary</p>
+<ul>
+<li>Continue if so, raise Exception if not.</li>
+</ul>
+</li>
+<li>
+<p>Create necessary keywords for URL string formatting</p>
+</li>
+<li>
+<p>Choose which set of URL templates to use (month or year) based on <code>kwargs</code> passed in</p>
+</li>
+<li>
+<p>Build URLs based on lists of template strings</p>
+</li>
+<li>
+<p>Check URL validity based on <code>HEAD</code> request response code (<code>200</code> == <code>good</code>)</p>
+<ul>
+<li>If we have a good URL response, fetch data using <code>pandas.read_csv()</code> method and return resulting DataFrame.</li>
+<li>If not, return formatted string message stating the data package and time period do not appear to be available. </li>
+</ul>
+</li>
+</ul>
+</div></div><p></p><p></p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/6a1859bd-62ec-4563-952e-67c3b65a664c">Station Web Manager</a></li>
+</ol>

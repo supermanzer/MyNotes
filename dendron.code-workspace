@@ -16,7 +16,8 @@
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggest.showSnippets": true,
     "editor.tabCompletion": "on",
-    "dendron.enableSelfContainedVaultWorkspace": true
+    "dendron.enableSelfContainedVaultWorkspace": true,
+    "dendron.defaultTimestampDecorationFormat": "DATE_MED_WITH_WEEKDAY"
   },
   "extensions": {
     "recommendations": [

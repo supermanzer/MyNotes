@@ -1,0 +1,38 @@
+<h1 id="chapter-3"><a aria-hidden="true" class="anchor-heading" href="#chapter-3"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Chapter 3</h1>
+<h1 id="on-coupling-and-abstractions"><a aria-hidden="true" class="anchor-heading" href="#on-coupling-and-abstractions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>On Coupling and Abstractions</h1>
+<p>This chapter is a digression from the building of our furniture retailer system to review abstractions.</p>
+<h2 id="why-use-abstractions"><a aria-hidden="true" class="anchor-heading" href="#why-use-abstractions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Why Use Abstractions?</h2>
+<p>We use abstractions to hide messy details.  When working on small personal projects it is easy to try out different approaches, aggressively refactor, and hammer out details, in large scale systems our ability to make changes becomes constrained by decisions made in other areas.</p>
+<p>When we cannot make changes in component A because it may cause breaking in component B we say those components are <em>coupled</em>.  Locally coupled components are often a sign that parts of the software are working well together.</p>
+<p>However, <strong>global coupling</strong> becomes a serious headache very quickly as risk and cost of code changes increases eventually to a point where it is impossible to change anything about our software.  This is the Big Ball of Mud problem.  We can reduce this through the use of abstractions.</p>
+<p>Going from</p>
+<div class="mermaid">
+  graph LR;
+A[System A] --> B[System B]
+A --> B
+A --> B
+A --> B
+A --> B
+</div>
+<p>to</p>
+<div class="mermaid">
+  graph LR;
+A[System A] --> B[Abstraction]
+A --> B
+B --> C[System B]
+B --> C
+B --> C
+</div>
+<p>By using an abstraction in the middle to simplify the interfaces,
+we reduce the individual linkages between subsystems A &#x26; B, thus making it easier to change one or the other without breaking the entire system.</p>
+<h2 id="how-to-get-started"><a aria-hidden="true" class="anchor-heading" href="#how-to-get-started"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>How to Get Started</h2>
+<p>Often it can be overwhelming, when you start to write some code, to try to consider where and how you will need to apply abstractions.  This can lead to decision paralysis and panic.  In these times I often think of the following:</p>
+<blockquote>
+<p>Pre-optimization is the devil</p>
+<pre><code>- Annonymous software engineer
+</code></pre>
+</blockquote>
+<p>Start by writing the most simple, naive solution to the smallest part of the problem and interatively improve the solution to better handle use &#x26; edge cases.</p>
+<h2 id="choosing-abstractions"><a aria-hidden="true" class="anchor-heading" href="#choosing-abstractions"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Choosing Abstraction(s)</h2>
+<p>Consider the responsibilities your code has.  Try to separate these core responsiblities into distinct operations.  Once you've identified those responsibilities, refactor your code to separate out the details of each operation and ingest/return only what is needed by the other components.  </p>
+<p>Try to separate <strong>what</strong> your software does from <em>how</em> it does it.  Also strive to keep the inputs and outputs as simple as possible.</p>

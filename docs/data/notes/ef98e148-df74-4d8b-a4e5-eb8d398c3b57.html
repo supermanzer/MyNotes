@@ -1,0 +1,15 @@
+<h1 id="dependent-status"><a aria-hidden="true" class="anchor-heading" href="#dependent-status"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Dependent Status</h1>
+<h1 id="models-with-dependent-values-in-the-local-library"><a aria-hidden="true" class="anchor-heading" href="#models-with-dependent-values-in-the-local-library"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Models with Dependent Values in the Local Library</h1>
+<p>Most of our models define pretty much all we need to ask of them. We can traverse relationships between <code>Book</code>, <code>Author</code>, and <code>BookInstance</code> models effectively. However there is one bit of functionality that I want to review. This is the status of the <code>BookInstance</code> model and it's relationship to the <code>BorrowedCopy</code> model. Specifically I want to address the somewhat complex nature of the <code>status</code> field in the <code>BookInstance</code> model.</p>
+<h2 id="models-in-question"><a aria-hidden="true" class="anchor-heading" href="#models-in-question"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Models in Question</h2>
+<p>To refresh, here are the model definitions, complete with <code>Meta</code> info and methods:</p>
+<p></p><blockquote>
+No note with name localibrary.models.copy_borrowed found
+</blockquote><p></p>
+<p>We can see there is an awful lot of calculations and comparisons being carried out in the Python layer of the application. While this is fine in general and likely to not cause any issues on an application of this size, I still prefer to get in the habit of optimizing where I can. With that in mind I would like to utilize <a href="https://docs.djangoproject.com/en/3.1/ref/models/querysets/#annotate">Django Annotations</a> to move more of these operations to the database layer. Let's take a look at a few different approaches to simplifying this approach.</p>
+<hr>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/c874cfd9-6e98-431b-a86a-b60d0cbf3a69">Approaches</a></li>
+</ol>

@@ -1,0 +1,168 @@
+<h1 id="approaches"><a aria-hidden="true" class="anchor-heading" href="#approaches"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Approaches</h1>
+<h2 id="workflow"><a aria-hidden="true" class="anchor-heading" href="#workflow"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Workflow</h2>
+<p>In determining how I want to solve this problem I should first break down the workflow I envision for our <code>Book</code>,  <code>BookInstance</code>, <code>BorrowedCopy</code>, and <code>Reservation</code> records.</p>
+<ul>
+<li><code>BorrowedCopy</code> records represoent the borrowing history of each copy but in certain situations repsent the current state of a copy.
+<ul>
+<li>When <code>date_checked_out</code> has a value but <code>date_returned</code> does not, this indicates the copy is <code>ON_LOAN</code>.</li>
+</ul>
+</li>
+<li>Library Patrons can create <code>BorrowedCopy</code> record for a given <code>BookInstance</code> that is in the <code>AVAILABLE</code>.</li>
+<li>Where a particular <code>Book</code> has no <code>BookInstance</code> records with a status of <code>AVAILABLE</code>, Patrons create a <code>Reservation</code> record.</li>
+<li>Only Library Staff can change a <code>BookInstance</code> status from <code>ON_LOAN</code> to any other status. In effect, they are responsible for returning a book to circulation.</li>
+<li>The presence or absence of a <code>Reservation</code> record without a related <code>BorrowedCopy</code> record for a given <code>Book</code> determines if it returns to an <code>AVAILABLE</code> or <code>RESERVED</code> status upon being returned to circulation.  
+<ul>
+<li>Since the <code>Reservation</code> model also captures when patrons cancel their reservation prior to checking out a copy of the reserved book we will need to included <code>canceled=False</code> in our filter criteria.</li>
+</ul>
+</li>
+</ul>
+<h2 id="controlling-bookinstance-status"><a aria-hidden="true" class="anchor-heading" href="#controlling-bookinstance-status"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Controlling <code>BookInstance</code> Status</h2>
+<p>Writing out the workflow is a great exercise and typing the list above helped clarify a few things for me. Initially I was thinking I could create an annotation that evaluates any related <code>BorrowedCopy</code> records for a given <code>BookInstance</code> and return this as the default for the status. While this approach does have the benefit of always being the most up to date (since it is caclulated each time a record is acccessed) it also increases the complexity of the SQL generated to fetch our record. In this scenario the <code>status</code> field would cease to exist on the <code>BookInstance</code> model per se and only be returned as a dynamically caculated value.</p>
+<p>However, this approach cannot statisfy one of the requirements of the above workflow. That is that only Library staff can return a copy to circulation. This rules out the pure annotation approach since some changes in status are not controlled by related record values.</p>
+<h3 id="static-fields-approach"><a aria-hidden="true" class="anchor-heading" href="#static-fields-approach"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Static Fields Approach</h3>
+<p>While we must rely on a static model field to get the functionality we want, we can still utilize a similar approach that moves more of the operations to the database layer. This will help make sure that the application can better scale as the library gets more popular or patrons getting into reservation wars for the most popular books.</p>
+<p>I'll use Django's nifty <a href="https://docs.djangoproject.com/en/3.1/ref/models/conditional-expressions/#conditional-update">Conditional Update</a> approach. This allows me to specificy various criteria in <code>When</code> clauses that will be evaluated in the database and which value should be written to the status field depending on which clause returns <code>True</code>.</p>
+<p>Now where to put this little bit of logic? Well the returning to circulation operaton happens directly with the BookInstance model so it would seem that we need a model method to represent that action wherein we will place this logic. <em>However</em> we also need to revise the logic in the <code>save()</code> method for the <code>BorrowedCopy</code> model to accurately reflect the intended workflow.</p>
+<p>In order to avoid having to maintain multiple copies of the same logic I will use one of my favorite features of Django annotations. That is they can be defined and assigned to a variable, outside of calling the actual query. This means I can <em>hopefully</em> create a single definition of this business logic and reuse it in multiple model methods.</p>
+<h3 id="on-second-thought"><a aria-hidden="true" class="anchor-heading" href="#on-second-thought"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>On Second Thought...</h3>
+<p>We'll need two versions of the conditional update annotation.</p>
+<ul>
+<li><code>status_patrons</code>: The one for library patrons will determine if it should set the copy's status to <code>ON_LOAN</code> (checking out) or <code>MAINTENANCE</code> (returned and awaiting library staff).</li>
+<li><code>status_staff</code>: The one for staff will determine if a copy should be set to <code>RESERVED</code> (if <code>Reservation</code> records without a related <code>BorrowedCopy</code> record) or <code>AVAILABLE</code> (if not) when it is returned to circulation (or taken out of <code>MAINTENANCE</code> status).</li>
+</ul>
+<p>The benefit of this approach is we don't need to require either staff or patrons to know what the appropriate status is to set for the copy. Of course the front-end will determine whether to present a 'Check Out' or 'Reserve' button to the user (or both) for the patrons. For the staff, I will do a little bit of <a href="https://docs.djangoproject.com/en/3.1/ref/contrib/admin/actions/">customizing the default Django admin interface</a> to allow staff to 'Return to Circulation' for multiple copies at once.</p>
+<p>In this case I get to play with a few of the nifty advanced ORM features of Django. Let's take a look!</p>
+<h3 id="annotations-for-static-field-values"><a aria-hidden="true" class="anchor-heading" href="#annotations-for-static-field-values"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Annotations for Static Field Values</h3>
+<ul>
+<li>First I'm using the <a href="https://docs.djangoproject.com/en/3.1/ref/models/expressions/#subquery-expressions"><code>OuterRef</code> to nest subqueries</a> within the overall <code>Case</code> statement. I will use these subqueries to define each of statuses.</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
+  catalog/annotations.py
+"""</span>
+
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>db<span class="token punctuation">.</span>models <span class="token keyword">import</span> OuterRef
+<span class="token keyword">from</span> catalog<span class="token punctuation">.</span>models <span class="token keyword">import</span> BorrowedCopy<span class="token punctuation">,</span> Reservation
+<span class="token comment"># When using the OuterRef function, this annotation must be called as</span>
+<span class="token comment"># part of a query on the related object, BookInstance in this case.</span>
+
+<span class="token comment"># Define condition in which a copy is checked out.</span>
+checked_out <span class="token operator">=</span> BorrowedCopy<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>
+  copy<span class="token operator">=</span>OuterRef<span class="token punctuation">(</span><span class="token string">'pk'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  date_checked_out__isnull<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span>
+  date_returned__isnull<span class="token operator">=</span><span class="token boolean">True</span>
+<span class="token punctuation">)</span>
+<span class="token comment"># Define condition in which a copy is reserved</span>
+<span class="token comment"># In this case the Book FK is referenced </span>
+reserved <span class="token operator">=</span> Reservation<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>
+  book<span class="token operator">=</span>OuterRef<span class="token punctuation">(</span><span class="token string">'book_id'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  borrowed_copy_id__isnull<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+  canceled<span class="token operator">=</span><span class="token boolean">False</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li>Next we roll up each of these subqueries inside a Case statement. To make this simple as well as provide some potential query optimization, I will be applying the <a href="https://docs.djangoproject.com/en/3.1/ref/models/expressions/#exists-subqueries"><code>Exists</code> subquery class</a> along with the rest of the <code>Case..When</code> functionality that are part of Django ORM's <a href="https://docs.djangoproject.com/en/3.1/ref/models/conditional-expressions/#">conditional expressions</a> toolbox.</li>
+</ul>
+<pre class="language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
+  catalog/annotations.py
+"""</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>db<span class="token punctuation">.</span>models <span class="token keyword">import</span> Value<span class="token punctuation">,</span> CharField<span class="token punctuation">,</span> Case<span class="token punctuation">,</span> When
+<span class="token keyword">from</span> catalog<span class="token punctuation">.</span>models <span class="token keyword">import</span> BookInstance
+
+status_patrons <span class="token operator">=</span> Case<span class="token punctuation">(</span>
+  When<span class="token punctuation">(</span>Exists<span class="token punctuation">(</span>checked_out<span class="token punctuation">)</span><span class="token punctuation">,</span> then<span class="token operator">=</span>Value<span class="token punctuation">(</span>BookInstance<span class="token punctuation">.</span>ON_LOAN<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  When<span class="token punctuation">(</span>Exists<span class="token punctuation">(</span>reserved<span class="token punctuation">)</span><span class="token punctuation">,</span> then<span class="token operator">=</span>Value<span class="token punctuation">(</span>BookInstance<span class="token punctuation">.</span>RESERVED<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  default<span class="token operator">=</span>Value<span class="token punctuation">(</span>BookInstance<span class="token punctuation">.</span>MAINTENANCE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  output_field<span class="token operator">=</span>CharField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+status_staff <span class="token operator">=</span> Case<span class="token punctuation">(</span>
+  When<span class="token punctuation">(</span>Exists<span class="token punctuation">(</span>reserved<span class="token punctuation">)</span><span class="token punctuation">,</span> then<span class="token operator">=</span>Value<span class="token punctuation">(</span>BookInstance<span class="token punctuation">.</span>RESERVED<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  default<span class="token operator">=</span>Value<span class="token punctuation">(</span>BookInstance<span class="token punctuation">.</span>AVAILABLE<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  output_field<span class="token operator">=</span>CharField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>The <code>When</code> clause expects a dynamic value as the <code>then</code> keyword argument so to get this working as expected we wrap our static status values in the <code>Value</code> class. This ensures we write back "o" for <code>ON_LOAN</code> rather than go looking for a field called "o".</p>
+<p>The <code>Case</code> statement will evaluate each <code>When</code> clause in order so even if a book being checked out has other future reservations, the <code>status_patrons</code> clause will still return the character value designating the status as "on loan". This is another example of why I like to declare each statically define choice to it's own static variable on the model (take a look at the BookInstance definition <a href="/MyNotes/notes/1a9144d0-ac3f-48af-9db9-aee31546240b">here</a> if you need a refresher). It means there is a single source of truth when it comes to static values in the application.</p>
+<h3 id="implementing-annotation--static-field-approach"><a aria-hidden="true" class="anchor-heading" href="#implementing-annotation--static-field-approach"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Implementing Annotation + Static Field Approach</h3>
+<p>Alright, I think I've got my subqueries and annotations worked out. Now to plug them into the application workflow. For the patrons this is pretty simple. We just replace the setting of the status field from a manual value to using the query result defined above:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">save</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""Override default save method to set due date and update copy status"""</span>
+        logger<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Calling model save method for </span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">from</span> <span class="token punctuation">.</span>annotations <span class="token keyword">import</span> status_patrons
+        BookInstance<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">filter</span><span class="token punctuation">(</span>pk<span class="token operator">=</span>self<span class="token punctuation">.</span>copy<span class="token punctuation">.</span><span class="token builtin">id</span><span class="token punctuation">)</span><span class="token punctuation">.</span>update<span class="token punctuation">(</span>
+            status<span class="token operator">=</span>status_patrons
+        <span class="token punctuation">)</span>
+        <span class="token comment"># We are going to use these records to hold reservations as well</span>
+        <span class="token comment"># so we need to accomodate situations where date_checked_out = None</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>date_checked_out <span class="token keyword">and</span> <span class="token keyword">not</span> self<span class="token punctuation">.</span>due_date<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>due_date <span class="token operator">=</span> self<span class="token punctuation">.</span>date_checked_out <span class="token operator">+</span> self<span class="token punctuation">.</span>CHECKOUT_DURATION
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>date_returned <span class="token keyword">and</span> self<span class="token punctuation">.</span>date_returned <span class="token operator">></span> self<span class="token punctuation">.</span>due_date<span class="token punctuation">:</span>
+            <span class="token comment"># Assigning late fee if returned after due date</span>
+            self<span class="token punctuation">.</span>assessed_late_fee <span class="token operator">=</span> <span class="token punctuation">(</span>self<span class="token punctuation">.</span>date_returned <span class="token operator">-</span>
+                                      self<span class="token punctuation">.</span>due_date<span class="token punctuation">)</span><span class="token punctuation">.</span>days <span class="token operator">*</span> self<span class="token punctuation">.</span>LATE_FEE
+        <span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+
+</code></pre>
+<p>You can compare this to the previous <code>save()</code> method <a href="/MyNotes/notes/1a9144d0-ac3f-48af-9db9-aee31546240b">here</a> to see the difference but here's the plain english version. We import the query (doing it within the method to avoid circular import issues) and update the related copy. We use the <code>.filter()</code> approach because the <code>update()</code> functionality belongs to the <code>Queryset</code> object, not an individual record. Additionally the <code>status_patrons</code> includes a <code>Subquery</code> clause so it needs to be placed within an outer query in order to operate as expected. Since the decision of what status should be assigned is handled by the query we get to call this without doing any <code>if...else</code> checks first. That is still done to set due_dates and late fees. At some point I might look into streamlining that. But for now this does the trick. Since both checking out and returning book actions in the front-end trigger the <code>save()</code> method for the <code>BorrowedCopy</code> model, this handles both actions nicely.</p>
+<p>Here is a basic flowchart of how the book status will change based on the overwritten <code>save()</code> method and the queryset annotations</p>
+<div class="mermaid">
+  graph LR;
+  a([Change Copy]) --> b{Status}
+  b --Available--> c[Checked Out]
+  b --On Loan--> d[Reserved]
+  b --Default--> e[Maintainace]
+</div>
+<p>Now let's take a look at the implementation of the staff workflow. This makes use of one of the coolest features of the <a href="https://docs.djangoproject.com/en/3.1/ref/contrib/admin/">Django admin site</a>. That is the amazing amount of customization that is possible. The admin site comes with basic CRUD functionality built in, assuming you have properly registered any custom models in the autogenerated <code>admin.py</code> file. Since I've decided that library staff would be using the Django admin site, this means we just need to add one additional option to the <code>BookInstance</code> model. And it's <strong>super</strong> easy! Let's take a look:</p>
+<p>I like to keep functionality encapsulated so I create a separate file:</p>
+<pre class="language-python"><code class="language-python"><span class="token triple-quoted-string string">"""
+    catalog/admin_functions.py
+
+    Creating custom funcionality to be added to the Django admin site.
+    https://docs.djangoproject.com/en/3.1/ref/contrib/admin/actions/
+
+    Function(s):
+    * return_to_circulation:  Sets `BookInstance` status based on `BorrowedCopy` subquery results
+"""</span>
+
+<span class="token keyword">from</span> <span class="token punctuation">.</span>annotations <span class="token keyword">import</span> status_staff
+
+
+<span class="token keyword">def</span> <span class="token function">return_to_circulation</span><span class="token punctuation">(</span>modeladmin<span class="token punctuation">,</span> request<span class="token punctuation">,</span> queryset<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Assign correct `status` value to `BookInstance` based on `BorrowedCopy` subquery
+
+    Args:
+        modeladmin (ModelAdmin): ModelAdmin objeect for `BookInstance`
+        request (HttpRequest): HttpRequest object
+        queryset (Queryset): Queryset object of `BookInstance` records to be modified.
+    """</span>
+    queryset<span class="token punctuation">.</span>update<span class="token punctuation">(</span>status<span class="token operator">=</span>status_staff<span class="token punctuation">)</span>
+
+
+<span class="token comment"># Adding a more helpful descrption to be rendered in the admin interface</span>
+return_to_circulation<span class="token punctuation">.</span>short_description <span class="token operator">=</span> <span class="token string">'Return copies to circulation'</span>
+</code></pre>
+<p>When I said this was super easy, I wasn't kidding. There are lots of comments so it may look like more is going on here but essentially <code>queryset.update(status=status_staff)</code> is all we need to do. Everything else is just good housekeeping. Now how do we assign this functionality to our admin site? In the <code>admin.py</code> file of course! More specifically, the <code>InstanceAdmin</code> class definition.</p>
+<pre class="language-python"><code class="language-python">catalog<span class="token operator">/</span>admin<span class="token punctuation">.</span>py
+<span class="token keyword">from</span> <span class="token punctuation">.</span>admin_functions <span class="token keyword">import</span> return_to_circulation
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">class</span> <span class="token class-name">InstanceAdmin</span><span class="token punctuation">(</span>admin<span class="token punctuation">.</span>ModelAdmin<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    actions <span class="token operator">=</span> <span class="token punctuation">[</span>return_to_circulation<span class="token punctuation">,</span> <span class="token punctuation">]</span>  <span class="token comment"># yes it's really this simple</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<div class="mermaid">
+  graph LR;
+  a([Return to Circ]) --> b{Has Reservation?}
+  b --No--> d[[Status = Available]]
+  b --Yes--> e[[Status = Reserved]]
+</div>
+<p>After these changes are saved library staff can update returned books to the correct status in bulk. Let's think about how cool that is for a second. A tired librarian could come in on Monday to find hundreds of books returned and awaiting return to circulation. Rather than having to look at each record and see if there are any pending reservations before updating the status of each book copy, the staff member could simple "Select All" and update the status. I think that's pretty damn nifty.</p>
+<img src="/assets/images/update.png" alt="Update Admin Action" width="800">
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/c49bdcee-daa2-4b8d-af33-af74f37173f0">Localibrary</a></li>
+<li><a href="/MyNotes/notes/fXFVY82EH-qWRAWmxtIfv">User Notifications</a></li>
+</ul>
