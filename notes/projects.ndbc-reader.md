@@ -4,7 +4,7 @@ title: NDBC Reader
 desc: >-
   A Python software package designed to simplify the retrieval of data from NDBC
   data stations
-updated: 1662229426383
+updated: 1662326536163
 created: 1622482415473
 ---
 
@@ -25,3 +25,9 @@ What follows is a first draft of the patterns and approaches I think would make 
 * **Analysis Service:** This will encapsulate the rudimentary analyses that will be added to the NDBC Reader package and the Data Buoy class.
 * **Unit of Work:** This will abstract the communication between the API services (fetching data) and the repository (storing data).
 
+## Revise Package Creation using PyScaffold
+As a way to facilitate better package organization, testing, and documentation, I want to refresh the package using [PyScallfold](https://pyscaffold.org/en/stable/index.html).  This should allow me to revise how the NDBC DataBuoy package is organized and contributed to in a much more rigorous fashion without too much effort on my part.
+
+
+### Deprecated Doc
+I had previously begun documenting how to split responsibilities into two separate classes.  After consideration I have decided this was a half-hearted attempt at modularity and I would be better served by following a more rigorous approach to design principles.  These docs have been removed.
