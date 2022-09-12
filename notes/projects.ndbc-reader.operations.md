@@ -2,7 +2,7 @@
 id: il0d3buqdbkcmgbgfovas0p
 title: Desired Functionalities
 desc: ''
-updated: 1662326922351
+updated: 1662394741122
 created: 1662229443237
 ---
 The [[projects.ndbc-reader]] software package has only a few operations, currently.  These mostly focus on retrieving and persisting data.  TThe other Functionalities are allowing access to the data stored during runtime and keeping track of data fetching operations performed and their outcome.
@@ -21,7 +21,7 @@ The assignment of the returned data to the correct properties on the Data Buoy c
 ## Data Persistence
 This is the storing of the data that comprises the state of an instance of the Data Buoy class.  Ideally researchers should be able to use this package to retrieve data and then store it in a manner they find convenient so it can be analyzed later without requiring an internet connection.
 
-Presntly the only approach to data persistence/loading is writing to / reading from `.json` files.  I think it would make sense to abstract general data persistence to it's own class and work to add multiple methods including allowing users to specify database connection parameters and store individual Data Buoy data to either SQL or NoSQL databases.
+Presently the only approach to data persistence/loading is writing to / reading from `.json` files.  I think it would make sense to abstract general data persistence to it's own class and work to add multiple methods including allowing users to specify database connection parameters and store individual Data Buoy data to either SQL or NoSQL databases.
 
 ## Data Storage/Access
 The NDBC `DataBuoy` class is operates as a data storage and access API during runtime after data has been retrieved from NDBC servers.  Keeping this data organized in a way that makes sense is something that desrves serious consideration.  
