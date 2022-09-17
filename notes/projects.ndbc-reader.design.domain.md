@@ -2,7 +2,7 @@
 id: a4txnw183cgd9psxfu5jd0k
 title: Domain
 desc: ''
-updated: 1662762788893
+updated: 1663434387348
 created: 1662391424866
 ---
 _Applying the domain model to the NDBC Python package_
@@ -28,3 +28,7 @@ Accessing data from NDBC data stations is cumbersome and not easily scripted.
 * Allow users to search for data stations based on geographic coordinates
 
 Presently the tests in `test_databuoy.py` appear to cover all of these aspects of the domain.  However, one aspect covered in this chapter has not been addressed.  That is whether a DataBuoy object should be treated as an Entity or a Value Object.  How should we implement equality?  Two objects could have the same `station_id` but different data packages and/or time periods.  Hmmmmmm......
+
+
+![[projects.ndbc-reader.design.domain.models]]
+
