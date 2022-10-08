@@ -2,7 +2,7 @@
 id: 6erhfc4y3kdjeveybvlqasn
 title: Domain Models
 desc: ''
-updated: 1663435804129
+updated: 1665240519623
 created: 1663434358871
 ---
 
@@ -12,6 +12,8 @@ However, this is not ideal and can make maintenance difficult.  To that end I ha
 
 ## Models
 * `DataPackage` - This is a `dataclass` that used to encapsulate the details of an individual data package provided from an NDBC data station.  Examples are the standard meteorogical data (`stdmet`), continuous wind data (`cwind`), and others.  
+
+* `DataPackages` - This is a basic class that stores instances of `DataPackage` and will be a property of the `DataStation` class.  The primary responsibilities will be to add new or append to existing `DataPackage` instances as well as return a `DataPackage` instance when requested.
 
 * `DataStation` - This model represents the physical station where instruments are deployed and measurements are collected.
 

@@ -2,7 +2,7 @@
 id: ax5eormma12p6xh5fqtcxkh
 title: Repository
 desc: ''
-updated: 1663439386600
+updated: 1663614665514
 created: 1663027278967
 ---
 _Applying the Repository pattern for abstracting data storage_
@@ -64,4 +64,19 @@ I'm not entirely sure how best to accomplish this but I'm going to start simple 
 > but practicality beats purity
 
 
-To that end I have created a `BuoyORM` class that currently handles reading from and writing to `.json` files.  I've abstracted out _most_ of the hardcoded key values to facilitate using them in both read & write operations.
+To that end I have created a `BuoyORM` class that currently handles reading from and writing to `.json` files.  I've abstracted out _most_ of the hardcoded key values to facilitate using them in both read & write operations.  This is just the precursor to properly implementation of the Repository pattern but we need to start somewhere don't we?
+
+### End Goal
+Here's a quick sketch that will help me keep track of what I want.
+```mermaid
+flowchart TB
+a[Application Layer]
+
+c[Repository]
+d[Persistence]
+a ----> c
+c --Domain Model Objects --> a
+c --> d
+d --> c
+```
+The purpose of the repository layer is to abstract the complexity of how we save/load domain models.  The application layer asks for an object and receives an instantiated domain model.  It does not need to know how that gets done.
