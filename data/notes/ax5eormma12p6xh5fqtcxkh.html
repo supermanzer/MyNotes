@@ -1,0 +1,78 @@
+<h1 id="repository"><a aria-hidden="true" class="anchor-heading" href="#repository"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Repository</h1>
+<p><em>Applying the Repository pattern for abstracting data storage</em></p>
+<hr>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Persistence</span></div>
+<a href="/MyNotes/notes/mmaowqpd8nipggq46jf73o9" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>At the time of this writing the current persistence method is to write out the necessary data to a <code>.json</code> file.  </p>
+</div></div><p></p><p></p>
+<p>Let's start with a simple diagram of what we are trying to achieve here.</p>
+<div class="mermaid">
+  flowchart TB
+    subgraph domain
+        A[NDBC API] --> B[DataPackage]
+        B --> C[DataBuoy]
+    end
+    subgraph Repository
+        D[Abstract Repository] 
+        E[Concrete Repositories]
+        E -- implements -->D
+    end
+    D --> C 
+    E --> F[File System]
+    
+</div>
+<p>This design pattern will abstract away the data layer of our software from the model/business logic.  We are attempting to split this software (originally conceived as a single class with a large number of functions) into a layered, or more accurately onion, architecture design.  Let's make another diagram for this approach so we know where we're going.</p>
+<div class="mermaid">
+  flowchart TB
+A[High Level Functions]
+B[Domain Model]
+C[Data Storage/Respository]
+A --> B
+C --> B
+</div>
+<p>The book (architecture patterns in Python) is assuming the use of a database and using and SQLAlchemy ORM to handle interactions.  In our case we are just looking to write to a file but we can apply some of the same principles to help make our <a href="/MyNotes/notes/a4txnw183cgd9psxfu5jd0k">Domain</a> unaware of how the data is loaded/saved.</p>
+<h2 id="dependency-inversion-principle"><a aria-hidden="true" class="anchor-heading" href="#dependency-inversion-principle"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Dependency Inversion Principle</h2>
+<p> One of the major goals of the design patterns outlined in <em>Architecture Patterns in Python</em> is that our high-level business logic should have no direct dependencies.  Rather than our higher level software being dependant on lower level code, we seek to invert this relationship, with our lower-level, less abstract/more concrete, code being dependant on our high-level, more abstract business logic.</p>
+<p> The purpose for this is that it allows for modification to the concrete implementation of various functionalities without modifying the code in our business logic.  A good way to identify this in practice when reviewing the actual code written is which files depend or "know about" which others.  If we do it right in the context of this project the <code>NDBC.DataBuoy</code> class should know nothing about </p>
+<ol>
+<li>How we make HTTP requests to NDBC web servers</li>
+<li>How we save <code>DataBuoy</code> data to disk</li>
+<li>How we retrieve data from disk.</li>
+</ol>
+<h3 id="implementation"><a aria-hidden="true" class="anchor-heading" href="#implementation"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Implementation</h3>
+<p> In the book, the authors are making use of SQLAlchemy ORM tools to create an ORM that depends on our domain models.  In the case of NDBC, the ORM should be responsible for mapping the <code>DataBuoy</code> contents to a specific JSON document structure.</p>
+<p>I'm not entirely sure how best to accomplish this but I'm going to start simple and refactor often.  I will start by creating a, potentially superfluous, ORM to abstract read/write operations.  </p>
+<p><strong>Observation:</strong> As I work through this process I see plenty of places where I have hard-coded values.  This makes me cringe but at the same time I know I can go <em>way</em> overboard in refactoring.  Like with SQL databases, any value that is used multiple times is often defined in a single place and referenced.  However, it is possible to go too far in this respect.  While I have seen some Python code abstract all constants to a separate file/package, I think this moves constant definitions too far from where they are used making it difficult to understand their importance.  I try to remember these two important lines from the <code>Zen of Python</code></p>
+<blockquote>
+<p>special cases aren't special enough to break the rules</p>
+</blockquote>
+<blockquote>
+<p>but practicality beats purity</p>
+</blockquote>
+<p>To that end I have created a <code>BuoyORM</code> class that currently handles reading from and writing to <code>.json</code> files.  I've abstracted out <em>most</em> of the hardcoded key values to facilitate using them in both read &#x26; write operations.  This is just the precursor to properly implementation of the Repository pattern but we need to start somewhere don't we?</p>
+<h3 id="end-goal"><a aria-hidden="true" class="anchor-heading" href="#end-goal"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>End Goal</h3>
+<p>Here's a quick sketch that will help me keep track of what I want.</p>
+<div class="mermaid">
+  flowchart TB
+a[Application Layer]
+
+c[Repository]
+d[Persistence]
+a ----> c
+c --Domain Model Objects --> a
+c --> d
+d --> c
+</div>
+<p>The purpose of the repository layer is to abstract the complexity of how we save/load domain models.  The application layer asks for an object and receives an instantiated domain model.  It does not need to know how that gets done.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/mmaowqpd8nipggq46jf73o9">Persistence</a></li>
+</ol>

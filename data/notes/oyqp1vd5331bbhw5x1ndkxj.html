@@ -1,0 +1,23 @@
+<h1 id="blog-section"><a aria-hidden="true" class="anchor-heading" href="#blog-section"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Blog Section</h1>
+<p><em>Notes on the design and functionality of the blog portion of my personal site</em></p>
+<hr>
+<h2 id="home-page"><a aria-hidden="true" class="anchor-heading" href="#home-page"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Home Page</h2>
+<p>I think for this section it would make the most sense to display a list view of articles sorted chronologically (most recent first) on the left and a menu of topics and tags on the right.</p>
+<h3 id="list-view-component"><a aria-hidden="true" class="anchor-heading" href="#list-view-component"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>List View Component</h3>
+<p>This should be a reusable component that displays title, date created/updated, and a brief description of the article.</p>
+<h3 id="nav-sidebar"><a aria-hidden="true" class="anchor-heading" href="#nav-sidebar"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Nav Sidebar</h3>
+<p>I am thinking that I will use the top level directories (within the <code>blog</code> directory) to define general categories of blog post.  These will be represented by an accordion menu. Clicking the category name text will filter the list menu on the right.  However there is a dropdown carat icon that will expand the accordion and show a list of blog post titles (sorted in reverse chronological order).  Clicking an individual title should take the user to a detail view for that article.</p>
+<p>One aspect I'm a little undecided about is whether to retain the sidebar when showing the detail section.  It would reduce the available space and add distraction.  However it would allow faster navigation from one article to another.  A third option from either full display or no menu is to either use a <a href="https://vuetifyjs.com/en/components/navigation-drawers/#bottom-drawer">popover sidenav</a>. This might interfere with the sidenav component in <code>default</code> layout.  In that case I could try using a <a href="https://vuetifyjs.com/en/components/navigation-drawers/#expand-on-hover">minified design</a> with <code>expand_on_hover</code>.</p>
+<h3 id="algorithms-and-content"><a aria-hidden="true" class="anchor-heading" href="#algorithms-and-content"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Algorithms and Content</h3>
+<p>There are two ways I can think of to allow the sidebar, both category and tag filters, to alter the content displayed in the list/detail view.  </p>
+<ul>
+<li>
+<p><strong>Store/State</strong> This approach is to use Vuex global state.  This will entail creating a <code>blog</code> namespace, similar to <code>nav</code>, with it's own <code>state</code>, <code>getters</code>, and <code>mutators</code>.  This is a not inconsiderable addition of complexity.  However it does abstract the details of the implementation to the Vuex methods, which is appealing.</p>
+</li>
+<li>
+<p><strong>Props/Events</strong> This approach is the more classic Vue mechanism of propagating changes from one component to another.  THe components being acted on generate events that the parent(s) listen for.  The local state is contained on the parent and passed down as props to the display components.  In this scenario the blog home page would need to store all the state and perform the changes based on the events triggered. Navigating to a detail view would (<em>I think</em>) clear the state but that could be the behavior I want.  </p>
+</li>
+</ul>
+<p>I was planning on having the side nav trigger a return to the list view <strong>and</strong> the associated filtering of blog results.  That may be prove difficult to achieve in one or the other options spelled out here.  I may need to re-evaluate this approach entirely after I get a little farther into development of the blog sidenav component.</p>
+<h2 id="update"><a aria-hidden="true" class="anchor-heading" href="#update"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Update</h2>
+<p>Categories proved to be too much of an extra hurdle and present organizational difficulties in terms of blog topics (is my NDBC software <code>tech</code> or <code>science</code>?).  I have scrapped that in favor of wider usage of tags and the ability to toggle between an inclusive and exclusive filtering (<code>any</code> versus <code>all</code>).</p>

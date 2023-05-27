@@ -1,0 +1,1 @@
+At the time of this writing the current persistence method is to write out the necessary data to a `.json` file.  

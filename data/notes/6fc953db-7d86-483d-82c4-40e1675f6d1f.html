@@ -1,0 +1,54 @@
+<h1 id="ndbc-reader"><a aria-hidden="true" class="anchor-heading" href="#ndbc-reader"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>NDBC Reader</h1>
+<ul>
+<li><strong>Project:</strong> </li>
+</ul>
+<p>These notes are being added only after the project's complexity has reached a point where I feel the need to jot things down in order to keep track of everything in my head.  Additionally, even though these are notes to myself about my own software projects, I still write as if I'm explaining these ideas to someone else.  It's a habit I picked up when I started coding in grad school and, since it works for me, I do not feel any need to change. Alright, on to the confusing bits!</p>
+<hr>
+<h2 id="update----feb-17-2023"><a aria-hidden="true" class="anchor-heading" href="#update----feb-17-2023"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Update -- Feb 17, 2023</h2>
+<p>I worry going all in on a modular approach is introducing unnecessary complexity. I still think the separation of concerns achieved by splitting out the functionality into separate classes with well defined scopes is a net positive. To try and achieve this without unnecessary complexity I will start by documenting how I plan to organize the files in the <code>/src/NDBC</code> directory for this package.</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Files</span></div>
+<a href="/MyNotes/notes/sp2f9kptx4yoat62ypgkrsg" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p><em>Definitions for the files in the <code>/src/NDBC</code> directory comprising the functionality of the NDBC package</em></p>
+<hr>
+<ul>
+<li><code>NDBC.py</code> - This file contains the highest level class(es) of the package and exposes the API intended for use in retrieving and analyzing NDBC station data.</li>
+<li><code>models.py</code> - This file defines the classes specific to the domain of this software, focused on encapsulating the representation of an NDBC data station.</li>
+<li><code>api.py</code> - This file defines the classes/methods involved with making the HTTP requests to retrieve NDBC data and parsing the responses.</li>
+<li><code>repository.py</code> - This file defines the classes/methods used to save and load the state of a particular instance of an NDBC data station.  It will encapsulate different methods for different approaches to data storage such as text files (<code>.json</code>, <code>.csv</code>) or SQL/NoSQL DBs.</li>
+<li><code>constants.py</code> - This file defines all the hard-coded constant values used in the NDBC package</li>
+</ul>
+</div></div><p></p><p></p>
+<h2 id="plan----sep-4-2022"><a aria-hidden="true" class="anchor-heading" href="#plan----sep-4-2022"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Plan -- Sep 4, 2022</h2>
+<p>This project has been neglected since I changed jobs and have had to spend more of my free time learning different programming languages and paradigms in order to keep up.  However that comes with a bonus of exposure to more enterprise grade software architecture.  With that in mind I plan to make a more rigorous effort to use a more design pattern driven approach to the NDBC Reader package.  </p>
+<p>What follows is a first draft of the patterns and approaches I think would make sense to employ in this effort.</p>
+<ul>
+<li><strong>Data Store/Data Transfer Object:</strong> This is a more codified approach to storing the various elemets of the data that the NDBC Reader project is the focus of.  This will also encapsulate saving a Data Buoy object to disk and re-instantiating from saved data.</li>
+<li><strong>Repository:</strong> The repository pattern encapsulates the logic required to create, delete, and update the data.  </li>
+<li><strong>API Services:</strong> These services will encapsulate the logic required to make specific API requests.  </li>
+<li><strong>Analysis Service:</strong> This will encapsulate the rudimentary analyses that will be added to the NDBC Reader package and the Data Buoy class.</li>
+<li><strong>Unit of Work:</strong> This will abstract the communication between the API services (fetching data) and the repository (storing data).</li>
+</ul>
+<h2 id="revise-package-creation-using-pyscaffold"><a aria-hidden="true" class="anchor-heading" href="#revise-package-creation-using-pyscaffold"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Revise Package Creation using PyScaffold</h2>
+<p>As a way to facilitate better package organization, testing, and documentation, I want to refresh the package using <a href="https://pyscaffold.org/en/stable/index.html">PyScallfold</a>.  This should allow me to revise how the NDBC DataBuoy package is organized and contributed to in a much more rigorous fashion without too much effort on my part.</p>
+<h3 id="deprecated-doc"><a aria-hidden="true" class="anchor-heading" href="#deprecated-doc"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Deprecated Doc</h3>
+<p>I had previously begun documenting how to split responsibilities into two separate classes.  After consideration I have decided this was a half-hearted attempt at modularity and I would be better served by following a more rigorous approach to design principles.  These docs have been removed.</p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/MyNotes/notes/bvip3z5lby4gsw8f7wmru81">Design</a></li>
+<li><a href="/MyNotes/notes/il0d3buqdbkcmgbgfovas0p">Desired Functionalities</a></li>
+<li><a href="/MyNotes/notes/sp2f9kptx4yoat62ypgkrsg">Files</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/ZMf4aL2sSZBsUMJgMhn0R">Projects</a></li>
+<li><a href="/MyNotes/notes/il0d3buqdbkcmgbgfovas0p">Desired Functionalities</a></li>
+</ul>

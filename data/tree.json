@@ -1,0 +1,390 @@
+{
+  "roots": [
+    {
+      "key": "0bwos7t08sg0btcv0xz15jj",
+      "title": "My Notes",
+      "icon": null,
+      "hasTitleNumberOutlined": false,
+      "vaultName": "Dendron",
+      "navExclude": false,
+      "children": [
+        {
+          "key": "ZMf4aL2sSZBsUMJgMhn0R",
+          "title": "Projects",
+          "icon": null,
+          "hasTitleNumberOutlined": false,
+          "vaultName": "Dendron",
+          "navExclude": false,
+          "children": [
+            {
+              "key": "9rc96ih5efxhs5mitfnwlrl",
+              "title": "Automated Analysis",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "navExclude": false,
+              "children": []
+            },
+            {
+              "key": "ZG5dy128q8nTg2wptcunO",
+              "title": "Local Recipe Server",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "navExclude": false,
+              "children": [
+                {
+                  "key": "7wwsf6v4iuzqkcmyb5epker",
+                  "title": "API",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": [
+                    {
+                      "key": "upl2tbo4rlv4hkgjduvi1i3",
+                      "title": "Serializers",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "key": "ktbej6pqdxs6n5ljh3ftv6g",
+                  "title": "Android App Design",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": []
+                },
+                {
+                  "key": "nr1WXwYYrWSPhs8JKr5SY",
+                  "title": "Data Models",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": [
+                    {
+                      "key": "tzRIbPhcnUFIhERjOHFwC",
+                      "title": "Image",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "j181dFWmJZsreC5aexhe6",
+                      "title": "Ingredient",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "9ywbq9ix1IsLN55bFpQRI",
+                      "title": "Recipe",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "SbTEpvK2XGGDODacWdxot",
+                      "title": "Recipe Ingredient",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "uUxBkIP03jPxohCrZsVky",
+                      "title": "Recipe Step",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "soHYpt885ozjQWUY3suoU",
+                      "title": "Step",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "key": "3u8xz9de0m56m2pu466elrr",
+                  "title": "ML Tasks",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": [
+                    {
+                      "key": "61eonxgg2peewbodzcfsccv",
+                      "title": "NLP",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "llhbj4zwjnalqoi6hn497rm",
+                      "title": "OCR",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "key": "Eu3Ti3xC3181U4eLOWxsv",
+                  "title": "Services",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": [
+                    {
+                      "key": "HsYAro3Jb3QOLVgLdGOK3",
+                      "title": "Text Assigment",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "Wl7xkoMZgCm0faeX2LfZn",
+                      "title": "Text Parsing",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "key": "ykosvctv284qjvdsp13tbwj",
+                  "title": "Todo",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": []
+                },
+                {
+                  "key": "8lZ0plvgBBcCInx2b90To",
+                  "title": "User Interfaces",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": [
+                    {
+                      "key": "4hsUM8E38XB2LdExeMUqy",
+                      "title": "Create Recipe",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "c5wNMAvc65ExLUaeCfxl3",
+                      "title": "Landing Page",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    },
+                    {
+                      "key": "zLflC0uVAy1lZhlPHM70Y",
+                      "title": "View Recipe",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "6fc953db-7d86-483d-82c4-40e1675f6d1f",
+              "title": "NDBC Reader",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "navExclude": false,
+              "children": [
+                {
+                  "key": "bvip3z5lby4gsw8f7wmru81",
+                  "title": "Design",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": [
+                    {
+                      "key": "a4txnw183cgd9psxfu5jd0k",
+                      "title": "Domain",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": [
+                        {
+                          "key": "6erhfc4y3kdjeveybvlqasn",
+                          "title": "Domain Models",
+                          "icon": null,
+                          "hasTitleNumberOutlined": false,
+                          "vaultName": "Dendron",
+                          "navExclude": false,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "key": "ax5eormma12p6xh5fqtcxkh",
+                      "title": "Repository",
+                      "icon": null,
+                      "hasTitleNumberOutlined": false,
+                      "vaultName": "Dendron",
+                      "navExclude": false,
+                      "children": [
+                        {
+                          "key": "mmaowqpd8nipggq46jf73o9",
+                          "title": "Persistence",
+                          "icon": null,
+                          "hasTitleNumberOutlined": false,
+                          "vaultName": "Dendron",
+                          "navExclude": false,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "key": "il0d3buqdbkcmgbgfovas0p",
+                  "title": "Desired Functionalities",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": []
+                },
+                {
+                  "key": "sp2f9kptx4yoat62ypgkrsg",
+                  "title": "Files",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "key": "pkq28q9e4fj8sdl1wpjv93u",
+              "title": "Personal Website",
+              "icon": null,
+              "hasTitleNumberOutlined": false,
+              "vaultName": "Dendron",
+              "navExclude": false,
+              "children": [
+                {
+                  "key": "oyqp1vd5331bbhw5x1ndkxj",
+                  "title": "Blog Section",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": []
+                },
+                {
+                  "key": "duen0yrxw82q24wdr2wkiau",
+                  "title": "Style Issues",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": []
+                },
+                {
+                  "key": "ypeqiezlcqnvphmrc13czyy",
+                  "title": "Todo List",
+                  "icon": null,
+                  "hasTitleNumberOutlined": false,
+                  "vaultName": "Dendron",
+                  "navExclude": false,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "child2parent": {
+    "403": null,
+    "0bwos7t08sg0btcv0xz15jj": null,
+    "ZMf4aL2sSZBsUMJgMhn0R": "0bwos7t08sg0btcv0xz15jj",
+    "pkq28q9e4fj8sdl1wpjv93u": "ZMf4aL2sSZBsUMJgMhn0R",
+    "ypeqiezlcqnvphmrc13czyy": "pkq28q9e4fj8sdl1wpjv93u",
+    "duen0yrxw82q24wdr2wkiau": "pkq28q9e4fj8sdl1wpjv93u",
+    "oyqp1vd5331bbhw5x1ndkxj": "pkq28q9e4fj8sdl1wpjv93u",
+    "6fc953db-7d86-483d-82c4-40e1675f6d1f": "ZMf4aL2sSZBsUMJgMhn0R",
+    "il0d3buqdbkcmgbgfovas0p": "6fc953db-7d86-483d-82c4-40e1675f6d1f",
+    "sp2f9kptx4yoat62ypgkrsg": "6fc953db-7d86-483d-82c4-40e1675f6d1f",
+    "bvip3z5lby4gsw8f7wmru81": "6fc953db-7d86-483d-82c4-40e1675f6d1f",
+    "ax5eormma12p6xh5fqtcxkh": "bvip3z5lby4gsw8f7wmru81",
+    "mmaowqpd8nipggq46jf73o9": "ax5eormma12p6xh5fqtcxkh",
+    "a4txnw183cgd9psxfu5jd0k": "bvip3z5lby4gsw8f7wmru81",
+    "6erhfc4y3kdjeveybvlqasn": "a4txnw183cgd9psxfu5jd0k",
+    "ZG5dy128q8nTg2wptcunO": "ZMf4aL2sSZBsUMJgMhn0R",
+    "8lZ0plvgBBcCInx2b90To": "ZG5dy128q8nTg2wptcunO",
+    "zLflC0uVAy1lZhlPHM70Y": "8lZ0plvgBBcCInx2b90To",
+    "c5wNMAvc65ExLUaeCfxl3": "8lZ0plvgBBcCInx2b90To",
+    "4hsUM8E38XB2LdExeMUqy": "8lZ0plvgBBcCInx2b90To",
+    "ykosvctv284qjvdsp13tbwj": "ZG5dy128q8nTg2wptcunO",
+    "Eu3Ti3xC3181U4eLOWxsv": "ZG5dy128q8nTg2wptcunO",
+    "Wl7xkoMZgCm0faeX2LfZn": "Eu3Ti3xC3181U4eLOWxsv",
+    "HsYAro3Jb3QOLVgLdGOK3": "Eu3Ti3xC3181U4eLOWxsv",
+    "3u8xz9de0m56m2pu466elrr": "ZG5dy128q8nTg2wptcunO",
+    "llhbj4zwjnalqoi6hn497rm": "3u8xz9de0m56m2pu466elrr",
+    "61eonxgg2peewbodzcfsccv": "3u8xz9de0m56m2pu466elrr",
+    "nr1WXwYYrWSPhs8JKr5SY": "ZG5dy128q8nTg2wptcunO",
+    "soHYpt885ozjQWUY3suoU": "nr1WXwYYrWSPhs8JKr5SY",
+    "9ywbq9ix1IsLN55bFpQRI": "nr1WXwYYrWSPhs8JKr5SY",
+    "uUxBkIP03jPxohCrZsVky": "nr1WXwYYrWSPhs8JKr5SY",
+    "SbTEpvK2XGGDODacWdxot": "nr1WXwYYrWSPhs8JKr5SY",
+    "j181dFWmJZsreC5aexhe6": "nr1WXwYYrWSPhs8JKr5SY",
+    "tzRIbPhcnUFIhERjOHFwC": "nr1WXwYYrWSPhs8JKr5SY",
+    "7wwsf6v4iuzqkcmyb5epker": "ZG5dy128q8nTg2wptcunO",
+    "upl2tbo4rlv4hkgjduvi1i3": "7wwsf6v4iuzqkcmyb5epker",
+    "ktbej6pqdxs6n5ljh3ftv6g": "ZG5dy128q8nTg2wptcunO",
+    "9rc96ih5efxhs5mitfnwlrl": "ZMf4aL2sSZBsUMJgMhn0R"
+  }
+}

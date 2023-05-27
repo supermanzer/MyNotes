@@ -1,0 +1,44 @@
+<h1 id="recipe-ingredient"><a aria-hidden="true" class="anchor-heading" href="#recipe-ingredient"><svg aria-hidden="true" viewBox="0 0 16 16"><use xlink:href="#svg-link"></use></svg></a>Recipe Ingredient</h1>
+<p>This model is the associative entity that relates ingredients to recipes. It stores data that are unique to this relationship, i.e. quantity and unit.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><strong>ID</strong></td><td>BigInt</td><td>Primary Key</td></tr><tr><td><strong>RecipeID</strong></td><td>BigInt</td><td>FK relating to Recipe</td></tr><tr><td><strong>IngredientID</strong></td><td>BigInt</td><td>FK relating to Ingredient</td></tr><tr><td><strong>Quantity</strong></td><td>Int</td><td>Quantity of the ingredient in the recipe</td></tr><tr><td><strong>Unit</strong></td><td>Text</td><td>The unit the quantity represents (e.g. cup, pinc, teaspoon)</td></tr></tbody></table>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/MyNotes/notes/nr1WXwYYrWSPhs8JKr5SY">Data Models</a></li>
+<li><a href="/MyNotes/notes/upl2tbo4rlv4hkgjduvi1i3">Serializers</a></li>
+</ul>
