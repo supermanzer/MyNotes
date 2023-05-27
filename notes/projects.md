@@ -2,7 +2,7 @@
 id: ZMf4aL2sSZBsUMJgMhn0R
 title: Projects
 desc: ''
-updated: 1656877120111
+updated: 1676655732355
 created: 1640901832056
 ---
 
@@ -12,3 +12,5 @@ created: 1640901832056
 - [[projects.ndbc-reader]]
 
 - [[projects.local-recipe-server]]
+
+- [[projects.personal-website]]
